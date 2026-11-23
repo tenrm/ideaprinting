@@ -100,9 +100,11 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:20px}
 <body>
 <header>
  <h1>IdeaPrinting · คลังไอเดียงานพิมพ์และของที่ระลึก</h1>
- <p>ไอเดียสินค้าจากอุปกรณ์ที่มี (Brother เลเซอร์ · Canon TC-20 · Cricut Explore 4 · เครื่องเคลือบร้อน/เย็น · เครื่องปั๊มเข็มกลัด · 3D Printer · เลเซอร์ DJ6) สำหรับตลาดรับปริญญา งานแต่ง พิพิธภัณฑ์ และงานประชุม</p>
+ <p>ไอเดียสินค้าจากอุปกรณ์ที่มี (Brother เลเซอร์ · Canon TC-20 · Cricut Explore 4 · เครื่องเคลือบร้อน/เย็น · เครื่องปั๊มเข็มกลัด · 3D Printer · เลเซอร์ DJ6 · งานดิจิทัล/สติกเกอร์ LINE) สำหรับตลาดรับปริญญา งานแต่ง พิพิธภัณฑ์ และงานประชุม</p>
  <nav id="nav">
   <button data-t="ideas" class="on">ไอเดียสินค้า</button>
+  <button data-t="innov">นวัตกรรม</button>
+  <button data-t="tools">เครื่องมือ · LINE · Claude</button>
   <button data-t="sources">แหล่งไอเดีย (เว็บต้นทาง)</button>
   <button data-t="videos">สื่อเรียนรู้ (วิดีโอ)</button>
   <button data-t="calc">คำนวณต้นทุน</button>
@@ -138,6 +140,43 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:20px}
    <p class="legend">ต้นทุน/ราคาเป็นค่าประมาณต่อชิ้น (บาท) จากราคากลางวัสดุ พ.ย. 2569 รวมค่าวัสดุ หมึก และค่าแรงโดยประมาณ ยังไม่รวมค่าเสื่อมเครื่อง ค่าส่ง และค่าธรรมเนียมแพลตฟอร์ม · ใช้แท็บ "คำนวณต้นทุน" เพื่อคิดใหม่ด้วยราคาจริง</p>
   </div>
  </div>
+</div>
+
+<!-- ================= INNOVATION ================= -->
+<div class="tab" id="innov">
+ <section class="box">
+  <h2>โอกาสทำนวัตกรรม: จุดแข็งคือ "ความรู้ชีววิทยา + พิพิธภัณฑ์ + เครื่องมือผลิตเอง"</h2>
+  <p class="sub2">ร้านพิมพ์ทั่วไปแข่งกันที่ราคา แต่ธุรกิจนี้มีของที่คู่แข่งไม่มี คือข้อมูลและตัวอย่างทางชีววิทยา เครือข่ายนักวิชาการ และผลิตต้นแบบได้เองในวันเดียว นวัตกรรมที่น่าทำจึงเป็นการ <b>รวมเนื้อหาวิทยาศาสตร์ + การปรับแต่งเฉพาะบุคคล + ประสบการณ์ดิจิทัล</b> ไม่ใช่การซื้อเครื่องใหม่</p>
+  <div class="two">
+   <div><h3 style="margin:0 0 6px;font-size:16px">ความง่าย × ผลกระทบ (เลขตรงกับตาราง)</h3><div id="innovMatrix"></div><p class="note">มุมขวาบน = ทำก่อน (ง่ายและผลสูง) · มุมซ้ายบน = โครงการใหญ่ ต้องหาพันธมิตร/ทุน</p></div>
+   <div><h3 style="margin:0 0 6px;font-size:16px">5 ทิศทางนวัตกรรม</h3><ol style="margin:0;padding-left:20px;font-size:14.5px;line-height:1.7">
+    <li><b>Phygital</b>: สินค้ากระดาษ/3D ที่เชื่อมเว็บ เสียง วิดีโอ โมเดล 3D (QR/NFC)</li>
+    <li><b>Science-based</b>: ใช้ข้อมูลวิจัย ภาพแล็บ ตัวอย่างพิพิธภัณฑ์ เป็นลายและเนื้อหา</li>
+    <li><b>Accessible</b>: สินค้าสำหรับผู้พิการทางสายตาและผู้สูงอายุ (สัมผัสได้ ชิ้นใหญ่ ความทรงจำ)</li>
+    <li><b>Sustainable</b>: วัสดุรีไซเคิล ปลูกได้ ฉลากคาร์บอน ต่อยอดจาก Green Office</li>
+    <li><b>Mass customization</b>: ระบบสั่งทำอัตโนมัติ ผลิตชิ้นเดียวได้เร็ว (Claude ช่วยทำสคริปต์)</li></ol>
+    <h3 style="margin:14px 0 6px;font-size:16px">ขั้นตอนพัฒนา</h3><ol style="margin:0;padding-left:20px;font-size:14.5px;line-height:1.7">
+    <li>เริ่มจากปัญหาจริงของลูกค้า (Design thinking) คุย 5–10 คน</li><li>ทำต้นแบบเร็วด้วยเครื่องที่มี 1–3 ชิ้น</li><li>ทดสอบกับผู้ใช้จริง ปรับ แล้วตั้งราคา (แท็บคำนวณต้นทุน)</li>
+    <li>คุ้มครอง: ลายการ์ตูน/ภาพ = ลิขสิทธิ์ · ชื่อแบรนด์ = เครื่องหมายการค้า · กลไก/กระบวนการใหม่ = ยื่นสิทธิบัตร/อนุสิทธิบัตรก่อนเปิดเผย</li>
+    <li>ถ้าใช้ทรัพยากรมหาวิทยาลัย ตรวจระเบียบทรัพย์สินทางปัญญาและขอคำปรึกษาหน่วยบ่มเพาะ/ถ่ายทอดเทคโนโลยี และดูประกาศทุนนวัตกรรมภาครัฐ</li></ol></div>
+  </div>
+ </section>
+ <section class="box"><h2>15 ไอเดียนวัตกรรม</h2><div class="tablewrap" style="max-height:none"><table id="innovTbl"></table></div></section>
+</div>
+
+<!-- ================= TOOLS ================= -->
+<div class="tab" id="tools">
+ <section class="box">
+  <h2>ทำสติกเกอร์ LINE</h2>
+  <p class="sub2">สเปกจาก <a href="https://creator.line.me/en/guideline/sticker/" target="_blank" rel="noopener">LINE Creators Market Guidelines</a> (ตรวจเมื่อ 23 พ.ย. 2569) · ราคาขายเลือกตามขั้นที่ LINE กำหนด ส่วนแบ่งรายได้และการโอนเงินดูใน Help Center</p>
+  <div class="tablewrap" style="max-height:none"><table id="lineSpec"></table></div>
+  <div class="two" style="margin-top:12px"><div><h3 style="margin:0 0 6px;font-size:16px">ขั้นตอน</h3><ol id="lineSteps" style="margin:0;padding-left:20px;font-size:14.5px;line-height:1.7"></ol></div>
+  <div><h3 style="margin:0 0 6px;font-size:16px">ข้อห้ามสำคัญ</h3><ul style="margin:0;padding-left:20px;font-size:14.5px;line-height:1.7"><li>ห้ามใช้เพื่อโฆษณา หรือทำชุดที่มีแต่โลโก้องค์กร</li><li>ใช้ภาพบุคคล ตัวละคร โลโก้ หรือดารา ต้องแนบหลักฐานสิทธิ์</li><li>ห้ามขอข้อมูลส่วนตัว/ไอดีจากผู้ซื้อ</li><li>ไม่ควรเป็นภาพวิว/สิ่งของล้วน หรือสีอ่อนจนมองไม่เห็น</li><li>สติกเกอร์สั่งทำของลูกค้า ตั้งค่าซ่อนจากการค้นหาได้ แต่คนที่มีลิงก์ยังซื้อได้</li></ul>
+  <p style="margin-top:10px"><button class="btn ghost" id="goLineIdeas">ดูไอเดียสติกเกอร์ LINE 60 แบบ</button></p></div></div>
+ </section>
+ <section class="box"><h2>เว็บและแอปที่น่าใช้</h2><p class="sub2">เปิดตรวจแล้วว่าใช้งานได้ (23 พ.ย. 2569) · บริการ AI ควรอ่านเงื่อนไขการใช้งานเชิงพาณิชย์ก่อนขาย</p><div id="toolSites"></div></section>
+ <section class="box"><h2>Claude Skills ที่ใช้กับธุรกิจนี้ได้</h2><p class="sub2">Skill ที่มีในบัญชีนี้ คลิก "คัดลอกคำสั่ง" แล้วนำไปวางในแชตกับ Claude</p><div class="srcgrid" id="skillList"></div>
+  <h3 style="margin:16px 0 8px;font-size:16px">งานที่ Claude ทำให้ได้โดยตรง (ไม่ต้องใช้ skill เพิ่ม)</h3><div class="srcgrid" id="claudeDirect"></div></section>
 </div>
 
 <!-- ================= SOURCES ================= -->
@@ -1189,6 +1228,87 @@ sub("ชุดของขวัญตามตลาด","ชุดงานป
 ["ชุดของที่ระลึกนักท่องเที่ยวต่างชาติ (ข้อความ 2 ภาษา)","T,C,B","ชุดรวม","m","M",50,199,"ป้ายราคาภาษาอังกฤษ"],
 ["ชุด Green meeting (วัสดุรีไซเคิล ลดพลาสติก)","L,C","กระดาษรีไซเคิล + ไม่ใช้พลาสติก","o,a","A",35,110,"ต่อคน จุดขายงานสีเขียว"]
 ]);
+// หมวดใหม่: สติกเกอร์ LINE และงานดิจิทัล (X = คอมพิวเตอร์/แท็บเล็ต งานดิจิทัล) · ราคา null = รายได้ตามยอดขายในร้าน LINE
+sub("สติกเกอร์ LINE และงานดิจิทัล","สติกเกอร์ LINE ขายใน Creators Market",{digital:true,
+ mat:"ไฟล์ PNG พื้นใส (สติกเกอร์ 370×320 px สูงสุด, Main 240×240, Tab 96×74) · ชุดละ 8/16/24/32/40 ภาพ · แบบเคลื่อนไหวใช้ APNG 320×270",
+ tool:"แท็บเล็ต/คอม + ibisPaint, Procreate, Krita, Photopea หรือแอป LINE Sticker Maker · ส่งขายผ่าน LINE Creators Market",
+ who:"วัยรุ่น วัยทำงาน นักเรียน กลุ่มเฉพาะ (สายวิทย์ คนรักสัตว์ ครู)",
+ tip:"ต้นทุนเป็นเวลาออกแบบล้วน ขายได้ไม่จำกัด ต้องผ่านรีวิว ห้ามใส่โลโก้องค์กร/โฆษณา ใช้ภาพบุคคลหรือคาแรกเตอร์ต้องมีหลักฐานสิทธิ์ · รายได้ขึ้นกับยอดขายและขั้นราคาที่ LINE กำหนด"},[
+["สติกเกอร์ LINE สัตว์ป่าไทยพูดภาษาคนทำงาน","X","PNG 16–24 ภาพ","w,t","O",1200,null,"ขำ ๆ ใช้ทุกวัน (ขอบคุณ รับทราบ ส่งงานแล้ว)"],
+["สติกเกอร์ LINE นักวิจัย/นิสิตป.โท-เอก","X","PNG 24 ภาพ","a,s","O",1500,null,"มุก 'รันแล็บไม่ขึ้น' 'รอรีวิวเวอร์'"],
+["สติกเกอร์ LINE ครูประถม (คำชม/เตือนการบ้าน)","X","PNG 24 ภาพ","k,p","O",1500,null,"ครูใช้ส่งในกลุ่มผู้ปกครอง"],
+["สติกเกอร์ LINE แมลงน่ารักคำทักทาย","X","PNG 16 ภาพ","t,w","M,O",1000,null,"ต่อยอดลายเดียวกับสินค้าพิพิธภัณฑ์"],
+["สติกเกอร์ LINE ไดโนเสาร์ดุ๊กดิ๊ก (APNG)","X","APNG 16 ภาพ","t,p","O",2500,null,"แบบเคลื่อนไหวขายได้ราคาสูงกว่า"],
+["สติกเกอร์ LINE คำอวยพรผู้ใหญ่ (สวัสดีวันจันทร์–อาทิตย์)","X","PNG 24 ภาพ","e,w","O",1200,null,"ตลาดผู้สูงอายุใช้มาก"],
+["สติกเกอร์ LINE ภาษาถิ่น (อีสาน/เหนือ/ใต้) ลายพืชพื้นบ้าน","X","PNG 24 ภาพ","w,e,t","O",1500,null,"ภาษาถิ่น + ธรรมชาติ"],
+["สติกเกอร์ LINE สายรักษ์โลก (ประหยัดไฟ แยกขยะ)","X","PNG 16 ภาพ","w,o","A,O",1000,null,"ต่อยอดงาน Green Office (ไม่ใส่โลโก้)"],
+["สติกเกอร์ LINE ข้อความวิทยาศาสตร์ (สูตร โมเลกุล)","X","PNG 24 ภาพ","a,s","O",1300,null,"มุกเฉพาะกลุ่มขายง่ายในกลุ่ม"],
+["สติกเกอร์ LINE ตัวอักษรไทยลายมือ (Text sticker)","X","PNG 40 ภาพ","t,w","O",1500,null,"ทำได้เร็ว เน้นฟอนต์ที่ใช้ได้เชิงพาณิชย์"],
+["สติกเกอร์ LINE คนรักนก (นกประจำถิ่น)","X","PNG 16 ภาพ","e,a","M,O",1000,null,"ชมรมดูนกเป็นช่องทางขาย"],
+["สติกเกอร์ LINE แมว/หมาสายพันธุ์ไทย","X","PNG 24 ภาพ","t,w","O",1300,null,"ตลาดใหญ่ คู่แข่งเยอะ ต้องมีเอกลักษณ์"],
+["สติกเกอร์ LINE งานแต่ง (ขอบคุณแขก เชิญงาน)","X","PNG 16 ภาพ","b","W",1000,null,"ใช้ก่อน-หลังงานแต่ง"],
+["สติกเกอร์ LINE รับปริญญา (ยินดีด้วย ถ่ายรูปกัน)","X","PNG 16 ภาพ","g,t","G",1000,null,"ขายดีช่วงรับปริญญา"],
+["อีโมจิ LINE สัตว์จิ๋ว (180×180)","X","PNG 8–40 ภาพ","t,w","O",900,null,"ใช้แทรกในข้อความ เส้นขอบหนา"],
+["อีโมจิ LINE ใบไม้/ดอกไม้ 40 แบบ","X","PNG 40 ภาพ","w,e","O",1200,null,"ชุดใหญ่ใช้ได้หลากหลาย"],
+["ธีม LINE ลายพฤกษศาสตร์","X","ชุดไฟล์ธีม","w,e","O",2500,null,"ตรวจสเปกธีมใน Creators Market"],
+["สติกเกอร์ LINE ซีรีส์ตัวละครประจำร้าน (สร้างแบรนด์)","X","PNG 24 ภาพ","t","O",1500,null,"ตัวละครเดียวกับเข็มกลัด/สติกเกอร์จริง"],
+["สติกเกอร์ LINE ข้อความทำงานราชการ (รับทราบ ลงนามแล้ว)","X","PNG 24 ภาพ","o,w","O",1200,null,"ห้ามใส่ตราหน่วยงาน"],
+["สติกเกอร์ LINE ภาษาอังกฤษสำหรับนักท่องเที่ยว","X","PNG 16 ภาพ","m,t","M,O",1000,null,"ขายได้หลายประเทศ"]
+]);
+
+sub("สติกเกอร์ LINE และงานดิจิทัล","สติกเกอร์ LINE สั่งทำและชุดคู่สินค้าจริง",{
+ mat:"ภาพวาดการ์ตูนจากรูปลูกค้า (ได้รับความยินยอม) · ไฟล์ PNG ตามสเปก LINE · สินค้าจริงคู่กัน (สติกเกอร์ PP เข็มกลัด แม่เหล็ก) พร้อม QR ไปหน้าร้าน",
+ tool:"แท็บเล็ต/คอม · TC-20 + Cricut (สติกเกอร์จริง) · เครื่องปั๊มเข็มกลัด",
+ who:"บัณฑิต คู่บ่าวสาว ครอบครัว เพื่อนกลุ่ม ร้านค้า",
+ tip:"ขายบริการ 'วาดเป็นสติกเกอร์ LINE ของคุณเอง' ตั้งค่าซ่อนจากการค้นหาได้ (คนมีลิงก์ยังซื้อได้) · ต้องมีความยินยอมจากเจ้าของใบหน้า · ห้ามใส่โลโก้องค์กร"},[
+["สติกเกอร์ LINE หน้าบัณฑิตการ์ตูน 8 ภาพ","X","PNG 8 ภาพ","g","G",500,1500,"ราคาค่าบริการวาด + ส่งขาย"],
+["สติกเกอร์ LINE หน้าบัณฑิต 16 ภาพ + สติกเกอร์จริง 1 แผ่น","X,T,C","PNG 16 + PP A5","g,p","G",850,2490,"ชุดคู่ ดิจิทัล + จับต้องได้"],
+["สติกเกอร์ LINE คู่บ่าวสาว (ใช้แจ้งข่าว/ขอบคุณแขก)","X","PNG 16 ภาพ","b","W",800,2290,"ส่งให้แขกในกลุ่ม LINE งาน"],
+["สติกเกอร์ LINE ทั้งรุ่น (ทุกคนในรุ่นเป็นตัวการ์ตูน)","X","PNG 24–40 ภาพ","g,t","G",2500,6900,"หารต่อคนถูก ขายเป็นของขวัญรุ่น"],
+["สติกเกอร์ LINE ครอบครัว (พ่อแม่ลูก)","X","PNG 16 ภาพ","p,e","O",800,2290,"ของขวัญวันแม่/วันพ่อ"],
+["สติกเกอร์ LINE สัตว์เลี้ยงของลูกค้า","X","PNG 16 ภาพ","w,t","O",800,2290,"ตลาดคนรักสัตว์"],
+["สติกเกอร์ LINE ตัวละครร้านค้า (ไม่มีโลโก้)","X","PNG 24 ภาพ","c","O",1200,3500,"ใช้คุยกับลูกค้าใน LINE OA"],
+["สติกเกอร์ LINE แบบเคลื่อนไหวหน้าเจ้าของ (APNG 8 ภาพ)","X","APNG 8 ภาพ","t,w","O",1200,3490,"งานพรีเมียม"],
+["ชุดคู่: เข็มกลัด + สติกเกอร์ LINE ลายเดียวกัน","X,L,B","PNG + เข็มกลัด","t,g","G,O",350,990,"ซื้อของจริงได้ลิงก์สติกเกอร์"],
+["ชุดคู่: แม่เหล็กติดตู้เย็น + สติกเกอร์ LINE ครอบครัว","X,T,C","PNG + แม่เหล็ก","p","O",420,1290,"ของขวัญปีใหม่"],
+["ชุดคู่: สติกเกอร์ PP ไดคัท + LINE ลายเดียวกัน (ร้านพิพิธภัณฑ์)","X,T,C","PP + ลิงก์ร้าน LINE","m,t","M",15,79,"ขายสติกเกอร์จริง แนบ QR ไปร้าน LINE"],
+["การ์ดเชิญงานแต่ง + QR สติกเกอร์ LINE คู่บ่าวสาว","X,T,C","การ์ด + PNG","b","W",900,2900,"แขกโหลดสติกเกอร์ไว้ใช้คุยเรื่องงาน"],
+["สติกเกอร์ LINE ทีมงาน/แล็บวิจัย (ใช้ภายใน)","X","PNG 16 ภาพ","a,o","A",800,2290,"ซ่อนจากการค้นหาได้"],
+["สติกเกอร์ LINE ของขวัญเกษียณ (หน้าผู้เกษียณ)","X","PNG 16 ภาพ","o,e","O",800,2290,"ต้องได้รับความยินยอมจากผู้เกษียณ"],
+["สติกเกอร์ LINE ข้อความลายมือคุณครูถึงนักเรียน","X","PNG 24 ภาพ","k","O",600,1790,"ใช้ส่งงาน/ชมเชยในกลุ่มเรียน"],
+["แพ็กเกจรับปริญญา: สแตนดี้ + สติกเกอร์ LINE หน้าบัณฑิต","X,T,K","PNG + สแตนดี้ A1","g,p","G",850,2690,"รวมดิจิทัล + ของจริง"],
+["สอนทำสติกเกอร์ LINE เวิร์กช็อป 3 ชม. (ต่อคน)","X","สไลด์ + ไฟล์ตัวอย่าง","s,t,k","O",150,690,"สอนนักเรียน/ครู เพิ่มรายได้"],
+["บริการตรวจไฟล์ + ส่งรีวิว LINE ให้ (ลูกค้าวาดเอง)","X","ตรวจสเปก PNG","t,w","O",100,390,"ลดโอกาสโดนตีกลับ"],
+["บริการแปลงสติกเกอร์ LINE เป็นสติกเกอร์จริง 1 แผ่น A5","T,C","PP + BOPP","t","O",15,99,"ลูกค้าส่งไฟล์ที่ตนมีสิทธิ์"],
+["สติกเกอร์ LINE ประจำคณะ/ชมรม (ไม่มีตรา)","X","PNG 24 ภาพ","s,t","G,O",1200,3500,"ขายสมาชิกชมรม"]
+]);
+
+sub("สติกเกอร์ LINE และงานดิจิทัล","ไฟล์ดิจิทัลและสื่อออนไลน์",{digital:true,
+ mat:"ไฟล์ PDF/PNG/SVG/STL · ภาพสินค้าจริง · ภาพสาธารณสมบัติ (ระบุแหล่งที่มา)",
+ tool:"คอม/แท็บเล็ต · Canva/Photopea/Inkscape · Tinkercad/Nomad Sculpt/Blender · Claude ช่วยเขียนโค้ด SVG/OpenSCAD",
+ who:"ครู พ่อแม่ นักออกแบบ คนมีเครื่อง Cricut/3D printer",
+ tip:"ทำครั้งเดียวขายได้หลายครั้ง แต่ต้องคุมลิขสิทธิ์ไฟล์และเงื่อนไขการใช้ (ส่วนตัว/เชิงพาณิชย์) ให้ชัด"},[
+["ไฟล์ SVG ตัด Cricut ลายสัตว์ไทย (ชุด 20 ลาย)","X","SVG + PNG","t,w","O",600,199,"ระบุไลเซนส์ส่วนตัว/เชิงพาณิชย์"],
+["ไฟล์ STL ของที่ระลึก 3D (ฟอสซิลจำลอง)","X","STL","t,w","O",500,149,"ขายบนแพลตฟอร์มไฟล์ 3D"],
+["ไฟล์ใบงานพิพิธภัณฑ์ Printable (PDF 20 หน้า)","X","PDF","k,p","M,O",800,199,"ครูซื้อไปพิมพ์ในห้องเรียน"],
+["ไฟล์การ์ดเกม Print & Play (PDF)","X","PDF","p,k","O",1000,159,"ทดลองตลาดก่อนผลิตจริง"],
+["ภาพพื้นหลังมือถือลายพฤกษศาสตร์ (ชุด 10 ภาพ)","X","PNG","t,w","O",300,59,"ต่อยอดลายที่มีอยู่"],
+["เทมเพลตโปสเตอร์วิชาการ (PowerPoint/Canva)","X","PPTX/ลิงก์ Canva","a,s","A,O",600,199,"ขายนิสิตก่อนงานประชุม"],
+["เทมเพลตการ์ดเชิญงานแต่งแก้ไขเองได้","X","ลิงก์ Canva","b","W,O",500,249,"ลูกค้าแก้ชื่อเอง"],
+["ชุดไอคอนวิทยาศาสตร์ (SVG 50 ไอคอน)","X","SVG","a,c","O",1200,390,"นักวิจัยใช้ทำสไลด์"],
+["คอร์สออนไลน์สั้น: ทำจิ๊กซอว์แม่เหล็กด้วย Cricut","X","วิดีโอ + PDF","w,t","O",2000,490,"ขายเป็นคลิปบทเรียน"],
+["คลิปสอน/รีวิวสินค้าบน TikTok (รายได้แอฟฟิลิเอต)","X","วิดีโอสั้น","t,w","O",100,0,"รายได้จากค่าคอมมิชชัน ไม่ใช่ขายของเอง"],
+["ไฟล์ Lithophane จากภาพลูกค้า (ส่งไฟล์ให้พิมพ์เอง)","X","STL","t,w","O",30,149,"ลูกค้ามีเครื่อง 3D"],
+["แพ็กลายสติกเกอร์ Digital planner (GoodNotes)","X","PNG","s,t","O",500,99,"ขายแบบดาวน์โหลด"],
+["ภาพประกอบหนังสือ/สื่อการสอน (รับจ้างวาด)","X","PNG/SVG","k,o","A,O",800,2500,"งานรับจ้างจากหน่วยงาน"],
+["โมเดล 3D ตัวอย่างพิพิธภัณฑ์บนเว็บ (สแกนแล้วให้หมุนดู)","X","โมเดล 3D บนเว็บ","m,o","M",2000,6000,"รับจ้างหน่วยงาน/พิพิธภัณฑ์"],
+["ฟิลเตอร์กล้อง/กรอบรูปออนไลน์งานรับปริญญา","X","PNG กรอบ","g","G",300,990,"ใช้ในโซเชียลวันงาน"],
+["ไฟล์เกมการศึกษาบนเว็บ (Quiz สัตว์)","X","HTML","k,s","O,M",1500,3500,"รับจ้างทำหรือแจกฟรีเพื่อโปรโมต"],
+["ไฟล์ปฏิทินพิมพ์เองรายปี (PDF)","X","PDF","w,k","O",400,79,"ขายช่วงปลายปี"],
+["บริการเตรียมไฟล์ก่อนพิมพ์ (Bleed/CMYK/Cut line)","X","ไฟล์ลูกค้า","c,a","O",0,200,"ต่อไฟล์"],
+["Mockup สินค้า (ภาพจำลองให้ลูกค้าดูก่อนสั่ง)","X","PNG","c","O",0,150,"ช่วยปิดการขาย"],
+["ฟอนต์ลายมือไทยของร้าน (ใช้ทำสติกเกอร์/สินค้า)","X","OTF/TTF","t,c","O",3000,590,"ตรวจกติกาการทำและขายฟอนต์"]
+]);
 
 // [หมวด, หัวข้อ, videoId, ชื่อคลิป, ช่อง, ความยาว, ภาษา]  — ค้นและตรวจลิงก์จาก YouTube เมื่อ 23 พ.ย. 2569
 const VIDEOS = [
@@ -1259,7 +1379,30 @@ const VIDEOS = [
 ["ธุรกิจ: กฎหมายและภาษี","ภาษีขายของออนไลน์","gfvEzpS-LMg","ขายของออนไลน์ เสียภาษียังไง","TAXBugnoms","13:56","TH"],
 ["ธุรกิจ: กฎหมายและภาษี","บุคคลธรรมดาจด VAT เมื่อไหร่","hfPm7nJF5_s","บุคคลธรรมดาจด VAT ต้องจดเมื่อไหร่","TAXBugnoms","13:33","TH"],
 ["ธุรกิจ: กฎหมายและภาษี","PDPA สำหรับคนขายออนไลน์","t7LDH2vIqlM","PDPA สำหรับคนขายออนไลน์ – ทำยังไงไม่ให้ผิดกฎ","Ball Thatthana","7:05","TH"],
-["ธุรกิจ: กฎหมายและภาษี","PDPA ถ่ายรูปติดคนอื่น","0noWcIoP7bA","รู้ทันกฎหมาย PDPA ถ่ายรูปติดคนอื่นได้ไหม ขายของออนไลน์","iT24Hrs","20:58","TH"]
+["ธุรกิจ: กฎหมายและภาษี","PDPA ถ่ายรูปติดคนอื่น","0noWcIoP7bA","รู้ทันกฎหมาย PDPA ถ่ายรูปติดคนอื่นได้ไหม ขายของออนไลน์","iT24Hrs","20:58","TH"],
+["สติกเกอร์ LINE","ทำสติกเกอร์ LINE ตั้งแต่ศูนย์","t-SydYbzxio","How to Line Sticker สอนทำสติ๊กเกอร์ไลน์ตั้งแต่ 0","HamsPuiyMuiy","12:12","TH"],
+["สติกเกอร์ LINE","วาดสติกเกอร์ในมือถือ (ibisPaint)","IeL2KxnNMdQ","ibispaint x วาดสติ๊กเกอร์ไลน์ในมือถือ","Patty Supatcha","13:12","TH"],
+["สติกเกอร์ LINE","สมัคร LINE Creators Market","QADSGMGOmgk","สอนสมัคร Line Creator market","PannPam","9:42","TH"],
+["สติกเกอร์ LINE","อัปโหลดส่งขาย","kTB-ZJ6lAh0","วิธีอัพโหลดสติ๊กเกอร์ไลน์ส่งขาย [LINE Creators Market] EP4","Next Program","7:48","TH"],
+["สติกเกอร์ LINE","แอป LINE Sticker Maker","9DMxhSkJjVw","สอนทำสติกเกอร์ไลน์ใช้เอง + ขายได้ด้วยมือถือ ด้วยแอป Sticker Maker","Tom Media","8:01","TH"],
+["สติกเกอร์ LINE","สติกเกอร์เคลื่อนไหว (จาก LINE)","Dkgf_z-_X5U","[LINE Creators Market] วิธีสร้างสติกเกอร์แอนิเมชัน","LINE Thailand","1:31","TH"],
+["สติกเกอร์ LINE","สติกเกอร์ดุ๊กดิ๊ก APNG","4sF5klajFpU","การทำสติ๊กเกอร์ไลน์เคลื่อนไหว สติ๊กเกอร์ดุ๊กดิ๊ก APNG","Teebenzene","10:01","TH"],
+["สติกเกอร์ LINE","ทำจนผ่านรีวิว","0lOS2l4VGHk","สอนทำสติกเกอร์ LINE ทุกขั้นตอนจนผ่านการตรวจ","Poyja","7:00","TH"],
+["สติกเกอร์ LINE","ใช้ ChatGPT ช่วยทำสติกเกอร์","VntXIDxQ5Hg","ทำ Sticker LINE ด้วย ChatGPT ตั้งแต่เริ่มต้นจนถึงขายได้","พ่อบ้านมีเรื่องเล่า","19:29","TH"],
+["ปั้นและสแกน 3D","Tinkercad มือใหม่","gOs6Mdj7y_4","TinkerCAD – Tutorial for Beginners in 9 Minutes","Skills Factory","9:47","EN"],
+["ปั้นและสแกน 3D","ทำพวงกุญแจใน Tinkercad","hkAguLad3Wc","Easy Beginner TinkerCAD Project: Keychain / Bag Tag","Matthew Gudenius","10:01","EN"],
+["ปั้นและสแกน 3D","Nomad Sculpt พื้นฐาน","k1EGLKPL7XM","Nomad Sculpt: Learn the Basics","David Landry-Reed","29:57","EN"],
+["ปั้นและสแกน 3D","ปั้นใน Blender","9N87-yRR5aE","Sculpting in Blender: A Complete Beginner's Guide","Grant Abbitt","33:17","EN"],
+["ปั้นและสแกน 3D","AI ภาพเป็นโมเดล 3D (Meshy)","Ld93AIpDVO0","Turn Any Image into a 3D Model with AI – Meshy Tutorial","MK Graphics","8:22","EN"],
+["ปั้นและสแกน 3D","สแกน 3D ด้วยมือถือ (Polycam)","0F3uFeqFOOw","3D Scan with your iPhone, no LiDAR required – Polycam Photo Mode","Andrew Sink","5:25","EN"],
+["ปั้นและสแกน 3D","Photogrammetry สำหรับพิมพ์ 3D","1D0EhSi-vvc","Photogrammetry 2 – 3D scanning with just phone/camera","Prusa 3D","10:34","EN"],
+["ปั้นและสแกน 3D","OpenSCAD เบื้องต้น","oTCu2hCuqfg","OpenSCAD Tutorial – Beginners Quickstart","mathcodeprint","11:51","EN"],
+["ปั้นและสแกน 3D","แปลงภาพเป็นเส้นตัดใน Inkscape","aVPV6AtjGBg","The Complete Guide To Using Trace Bitmap in Inkscape","Logos By Nick","10:12","EN"],
+["นวัตกรรม","Design thinking คิดให้แก้ปัญหาได้จริง","8QJ9QjBM9jU","Design Thinking คิดอย่างไรให้แก้ปัญหาได้จริง","The Foundation","56:19","TH"],
+["นวัตกรรม","5 ขั้นตอน Design thinking","nEtoxWq6_tg","What are the 5 steps of Design Thinking? | 5 Minute Biz Knowledge","SET Thailand","2:25","TH"],
+["นวัตกรรม","แผ่นสัมผัสธรรมชาติวิทยาสำหรับผู้พิการทางสายตา","k_U1xe6Znfg","Tactile 3D Plate for Visually Impaired Visitors","Tornado Studios","0:52","EN"],
+["นวัตกรรม","เกมพิมพ์ 3D สำหรับผู้พิการทางสายตา","z8eBwxXOY6k","3D Printed Tactile Games for the Blind","PrintLab","1:11","EN"],
+["นวัตกรรม","ของขวัญแตะแล้วเปิดคลิปอวยพร","fSLJtqjhsmA","Tap For Message – Attach a Video Greeting to your Gift","TapForMessage","1:12","EN"]
 ];
 const SEARCHES = [
 ["กระดาษพิมพ์อิงค์เจ็ท โฟโต้ 2 หน้า","พื้นฐาน: กระดาษ"],["Canon TC-20 ตั้งค่ากระดาษ ม้วน","เครื่องมือ"],["Cricut Explore 4 magnet sheet deep point blade","เครื่องมือ"],
@@ -1280,7 +1423,8 @@ const PAL = {
  "เข็มกลัดและแม่เหล็ก":{bg:"#FFF7D1",mid:"#EFDD86",ink:"#6B5A0C"},
  "เครื่องเขียนและการ์ด":{bg:"#E5EDF7",mid:"#B7CAE2",ink:"#2F4A6B"},
  "งานสลักเลเซอร์ (DJ6)":{bg:"#F3EADB",mid:"#D8C19C",ink:"#5C4321"},
- "ชุดของขวัญตามตลาด":{bg:"#F9E0EB",mid:"#EAAEC8",ink:"#75264B"}
+ "ชุดของขวัญตามตลาด":{bg:"#F9E0EB",mid:"#EAAEC8",ink:"#75264B"},
+ "สติกเกอร์ LINE และงานดิจิทัล":{bg:"#DDF5E6",mid:"#93D9AE",ink:"#17643A"}
 };
 const PAL_DEF={bg:"#EEF1EF",mid:"#CBD5D1",ink:"#33454A"};
 
@@ -1305,7 +1449,7 @@ function motif(type,x,y,s,c,ink){const k=s/40;let g="";
   default:g=`<path d="M0,-17 L5,-5 L18,-5 L8,3 L12,16 L0,8 L-12,16 L-8,3 L-18,-5 L-5,-5Z" fill="${c}"/>`;}
  return `<g transform="translate(${x},${y}) scale(${k})">${g}</g>`;}
 
-function shapeType(i){const n=i.name;
+function shapeType(i){const n=i.name;if(i.sub.startsWith("สติกเกอร์ LINE")&&!/เข็มกลัด|แม่เหล็ก|สแตนดี้|การ์ดเชิญ|สติกเกอร์จริง|สติกเกอร์ PP|เวิร์กช็อป/.test(n))return "line";
  const R=[[/^ไฟล์|^ชุด Print|Printable|GoodNotes/,"file"],[/บริการ/,"service"],[/Lithophane/i,"lamp"],[/โคมไฟ|ไฟกลางคืน|ไฟประดับ|ตะเกียง/,"lamp"],
   [/จิ๊กซอว์/,"puzzle"],[/สแตนดี้/,i.sub.includes("ตั้งโต๊ะ")?"mini":"standee"],[/พร็อพ|เฟรมถ่ายรูป|กรอบถ่ายรูป|กรอบรูปโพลารอยด์|ฉาก/,"prop"],
   [/เข็มกลัด/,"button"],[/กระจกพกพา|ที่เปิดขวด/,"button"],[/แม่เหล็ก/,"magnet"],[/พวงกุญแจ/,"keychain"],[/ที่คั่นหนังสือ/,"bookmark"],
@@ -1349,6 +1493,7 @@ function mock(i,big){const P=PAL[i.cat]||PAL_DEF,mt=motifType(i.name+" "+i.note)
   case"postcard":s=`<g transform="rotate(-5 160 92)"><rect x="88" y="44" width="144" height="96" rx="4" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="96" y="52" width="70" height="80" fill="${P.bg}"/>${M(131,92,40)}<rect x="196" y="54" width="26" height="30" fill="${c}" stroke="${ink}" stroke-dasharray="2 2"/><rect x="176" y="96" width="46" height="3" fill="${c}"/><rect x="176" y="108" width="46" height="3" fill="${c}"/><rect x="176" y="120" width="34" height="3" fill="${c}"/></g>`;break;
   case"wood":s=`<rect x="100" y="44" width="120" height="96" rx="14" fill="#E8D2A8" stroke="${ink}" stroke-width="1.5"/><path d="M108 66 q50 -10 104 4 M108 96 q60 12 104 -2 M108 122 q40 -6 104 4" stroke="#C9A976" fill="none"/>${M(160,92,44,"#6B4A22")}<circle cx="122" cy="58" r="5" fill="${W}" stroke="${ink}"/>`;break;
   case"file":s=`<path d="M124 26 h54 l22 22 v104 h-76Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M178 26 v22 h22" fill="${c}" stroke="${ink}"/>${M(162,92,40)}<rect x="138" y="128" width="48" height="14" rx="4" fill="${c}"/><text x="162" y="139" font-size="10" text-anchor="middle" fill="${ink}" font-family="Sarabun,sans-serif" font-weight="700">PDF</text>`;break;
+  case"line":s=`<rect x="118" y="14" width="84" height="156" rx="14" fill="${ink}"/><rect x="124" y="26" width="72" height="130" rx="4" fill="#F4F8F6"/><rect x="130" y="34" width="46" height="14" rx="7" fill="${W}" stroke="${ink}" stroke-width=".8"/><rect x="146" y="54" width="44" height="14" rx="7" fill="${c}"/><g transform="translate(160 106)"><path d="M-28 -24 q28 -14 56 0 q14 26 0 46 q-28 12 -56 0 q-14 -22 0 -46Z" fill="${W}" stroke="${ink}" stroke-width="1.2"/>${motif(mt,0,-2,34,ink,ink)}</g><path d="M232 52 q14 -10 26 2 q-2 16 -18 14Z" fill="${c}" stroke="${ink}"/><text x="245" y="64" font-size="11" text-anchor="middle" fill="${ink}" font-weight="700" font-family="Sarabun,sans-serif">Hi!</text>`;break;
   case"service":s=`<circle cx="160" cy="88" r="56" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M160 32 a56 56 0 0 1 56 56 h-56Z" fill="${c}"/>${M(160,100,42)}<path d="M206 136 l20 20" stroke="${ink}" stroke-width="6" stroke-linecap="round"/>`;break;
   default:s=`<rect x="104" y="62" width="112" height="88" rx="6" fill="${c}" stroke="${ink}" stroke-width="1.5"/><rect x="152" y="62" width="16" height="88" fill="${W}"/><rect x="98" y="50" width="124" height="22" rx="5" fill="${c}" stroke="${ink}" stroke-width="1.5"/><path d="M160 50 C140 24 122 40 160 50 C198 40 180 24 160 50Z" fill="${W}" stroke="${ink}"/>${M(128,112,30,W)}`;}
  return `<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ภาพตัวอย่าง ${esc(i.name)}"${big?' width="100%"':''}><rect width="320" height="180" fill="${P.bg}"/><circle cx="276" cy="30" r="46" fill="${P.mid}" opacity=".35"/><circle cx="34" cy="160" r="34" fill="${P.mid}" opacity=".3"/>${s}</svg>`;}
@@ -1425,9 +1570,75 @@ const EN = [
 ["pocket mirror wedding favors","bottle opener magnet favors","wooden keychain wedding favor","wedding favor box printed","bookmark wedding favor","fridge magnet wedding favor","seed packet wedding favor","mini lithophane favor","wedding place card holder 3d","wedding signage set","wedding invitation set","wedding guest book pen","water bottle labels wedding","wedding favor bag","wedding cake topper names","wedding photo booth props","button maker wedding guests","bridesmaid proposal box","guest book poster","engagement ceremony stationery"],
 // ชุดงานประชุม
 ["conference attendee welcome kit","conference swag kit premium","speaker gift lithophane","speaker gift framed print","museum gift shop postcard sticker","museum gift shop puzzle magnet","museum activity kit kids","field trip teacher pack","conference signage set","conference poster printing","conference session pins","certificate of attendance","rare specimen postcards","paper hand fan custom","museum card game","museum map brochure","vip gift set","conference tote bag","tourist souvenir set bilingual","green meeting kit"]
+,
+// LINE Creators Market
+["animal line stickers office","grad student line stickers","teacher line stickers","cute insect line stickers","animated dinosaur line stickers","daily greeting stickers elderly","thai dialect line stickers","eco friendly line stickers","science pun line stickers","handwritten text line stickers","bird line stickers","thai cat dog line stickers","wedding line stickers","graduation line stickers","line emoji cute animals","line emoji flowers","line theme botanical","mascot character line stickers","office work line stickers","english tourist line stickers"],
+// LINE custom
+["custom line stickers from photo graduation","custom line stickers with physical sticker","custom couple line stickers wedding","class cartoon line stickers","family custom line stickers","pet custom line stickers","shop mascot line stickers","animated custom line stickers","button pin and line sticker set","fridge magnet family cartoon","museum sticker qr line","wedding invitation line sticker qr","lab team custom stickers","retirement custom stickers","teacher handwriting stickers","graduation standee and stickers","line sticker workshop","line sticker review service","print line sticker as physical sticker","club custom line stickers"],
+// digital files
+["cricut svg animal bundle","stl fossil souvenir","printable museum worksheet","print and play card game pdf","botanical phone wallpaper","scientific poster template powerpoint","editable wedding invitation template canva","science icons svg pack","cricut magnetic puzzle course","tiktok product review affiliate","custom lithophane stl from photo","goodnotes digital stickers","scientific illustration commission","3d scanned museum specimen web viewer","graduation photo frame filter","animal quiz web game","printable calendar pdf","print ready file preparation","product mockup","thai handwriting font"]
+];
+// ---------- นวัตกรรม ----------
+// [ชื่อ, อะไรใหม่, เครื่องมือ/ความรู้ที่ใช้, กลุ่มเป้าหมาย, ความง่าย 1–5, ผลกระทบ/มูลค่า 1–5, ก้าวแรก, ข้อควรระวัง/การคุ้มครอง]
+const INNOV=[
+["การ์ด/ของที่ระลึก Phygital สแกนดูโมเดล 3D และฟังเสียงสัตว์","สินค้ากระดาษธรรมดากลายเป็นสื่อเรียนรู้ เชื่อมข้อมูลวิจัยและคอลเลกชันจริงของพิพิธภัณฑ์","TC-20 + เคลือบ · QR · หน้าเว็บโมเดล 3D/เสียง (GitHub Pages)","นักท่องเที่ยวพิพิธภัณฑ์ ครู พ่อแม่",4,4,"ทำการ์ด 10 ชนิดสัตว์ + หน้าเว็บ 1 หน้า/ชนิด ทดลองขายหน้าพิพิธภัณฑ์","ใช้เสียง/ภาพที่มีสิทธิ์ · ตั้งชื่อแบรนด์และจดเครื่องหมายการค้า"],
+["โมเดลสัมผัสได้ (Tactile) + ป้ายข้อมูลสำหรับผู้พิการทางสายตา","พิพิธภัณฑ์ชีววิทยาที่ผู้พิการทางสายตาเรียนรู้ได้ด้วยมือ ยังมีน้อยในไทย","3D Printer (โมเดลขยาย) · ป้ายอักษรนูน · QR เสียงบรรยาย","พิพิธภัณฑ์ โรงเรียนสอนคนตาบอด หน่วยงานรัฐ",3,5,"ทำต้นแบบ 3 ชิ้น ทดสอบกับผู้ใช้จริงร่วมกับองค์กรด้านคนพิการ","ต้องให้ผู้ใช้จริงร่วมออกแบบ · อักษรเบรลล์ต้องตรวจโดยผู้เชี่ยวชาญ"],
+["Science Lithophane: ภาพจุลทรรศน์/งานวิจัยที่เห็นเมื่อส่องแสง","เปลี่ยนภาพจากแล็บเป็นของขวัญและของที่ระลึกงานประชุมที่ไม่มีใครทำ","3D Printer + กล่องไฟ LED","นักวิชาการ ผู้จัดงานประชุม บัณฑิตสายวิทย์",4,3,"ทำ 5 ภาพจากแล็บในภาควิชา วางขายในงานประชุมของคณะ","ภาพจากแล็บต้องได้รับอนุญาตจากเจ้าของงานวิจัย"],
+["ชุดสะสมโมเดลจากการสแกน 3D ตัวอย่างจริงในพิพิธภัณฑ์","ของที่ระลึกที่คัดลอกจากตัวอย่างจริง (กะโหลก ฟอสซิล เปลือกหอย) มีเฉพาะที่นี่","สแกนด้วยมือถือ (Photogrammetry) · 3D Printer · กล่อง Cricut","นักสะสม นักท่องเที่ยว นักเรียน",2,5,"ลองสแกน 3 ตัวอย่าง พิมพ์ทดสอบ ประเมินเวลา/ต้นทุน","ทำข้อตกลงกับพิพิธภัณฑ์เรื่องสิทธิ์และส่วนแบ่งรายได้"],
+["ของขวัญพร้อมคลิปอวยพร (แตะ NFC/สแกน QR)","Lithophane/ภาพกรอบลอย/การ์ด ที่เปิดคลิปเสียงหรือวิดีโอจากครอบครัวได้","NFC sticker tag (ราคาต่ำ) หรือ QR · ลิงก์วิดีโอส่วนตัว","ครอบครัวบัณฑิต คู่บ่าวสาว ผู้เกษียณ",4,4,"ทดลองกับแพ็กเกจรับปริญญา 20 ชุด","คลิปเป็นข้อมูลส่วนบุคคล (PDPA) ตั้งลิงก์แบบส่วนตัว"],
+["การ์ดเกมจากข้อมูล Citizen science ในวิทยาเขต","ทุกใบคือสิ่งมีชีวิตที่พบจริงในมหาวิทยาลัย พร้อม QR ไปข้อมูลการพบ","TC-20 + เคลือบ + Cricut · ข้อมูลจากแพลตฟอร์มสำรวจความหลากหลาย","นิสิต บัณฑิต ผู้มาเยือน ครู",3,4,"คัด 54 ชนิดจากข้อมูลวิทยาเขต ทำต้นแบบ 1 เด็ค","ใช้เฉพาะภาพที่ไลเซนส์อนุญาตเชิงพาณิชย์ ให้เครดิตผู้ถ่าย"],
+["บริการ Science-to-Art: กราฟ/ภาพวิจัยของลูกค้าเป็นงานศิลป์","นักวิจัยได้ภาพแขวน/โปสเตอร์/lithophane จากผลงานตัวเอง เป็นของขวัญจบการศึกษา","TC-20 · กรอบลอย · 3D Printer · Claude ช่วยจัดภาพ/สี","นักวิจัย บัณฑิตป.โท-เอก อาจารย์",4,4,"ทำตัวอย่างจากผลงานในภาควิชา 3 ชิ้น โพสต์ให้คนสั่ง","ลูกค้าต้องเป็นเจ้าของหรือได้รับอนุญาตใช้ภาพในบทความ"],
+["ของที่ระลึกปลูกได้: การ์ด/ซองเมล็ดพืชพื้นเมือง","ของที่ระลึกที่เติบโตต่อได้ เล่าเรื่องงานอนุรักษ์ของภาควิชา","Brother/TC-20 + Cricut · เมล็ดจากโครงการที่เพาะได้","คู่บ่าวสาว ผู้ร่วมงานประชุม นักท่องเที่ยว",4,3,"เลือกพืช 3 ชนิดที่ปลอดภัยและเพาะง่าย ทำซอง 100 ใบ","ไม่ใช้พืชต่างถิ่นรุกราน · ตรวจข้อกำหนดการส่งเมล็ดพันธุ์"],
+["สินค้าคาร์บอนต่ำ + ฉลากคาร์บอนฟุตพริ้นท์","ใช้ความรู้ Green Office คำนวณและแสดงคาร์บอนของสินค้า รีไซเคิลเศษ PLA/กระดาษ","แท็บคำนวณ + ข้อมูลวัสดุ · ภาชนะรีไซเคิล","หน่วยงานรัฐ งานประชุมสีเขียว บริษัท",2,4,"คำนวณคาร์บอนของ 3 สินค้าหลัก ใส่บนฉลากชุดงานประชุม","ระบุวิธีคำนวณและขอบเขตให้ชัด หลีกเลี่ยงการกล่าวอ้างเกินจริง"],
+["ระบบสั่งทำอัตโนมัติ (Mass customization)","ลูกค้ากรอกฟอร์ม/อัปโหลดรูป → ระบบสร้างไฟล์พิมพ์ทันที → ผลิตได้ในวันเดียว","สคริปต์สร้าง SVG/PDF (Claude ช่วยเขียน) · Cricut Print Then Cut · TC-20","บัณฑิต คู่บ่าวสาว ร้านค้า",3,5,"เริ่มจากสินค้าเดียว เช่น เข็มกลัดชื่อ/จิ๊กซอว์ภาพ","ระบบเก็บรูปลูกค้าต้องมีนโยบายความเป็นส่วนตัวและลบไฟล์ตามกำหนด"],
+["ชุดคู่ของจริง + สติกเกอร์ LINE ลายเดียวกัน","ซื้อสินค้าจับต้องได้แล้วได้สติกเกอร์ LINE ใช้ต่อ สร้างการจดจำแบรนด์","TC-20 + Cricut + เข็มกลัด · LINE Creators Market","วัยรุ่น บัณฑิต นักท่องเที่ยว",4,3,"ทำตัวละครแบรนด์ 1 ตัว ส่งรีวิว LINE 16 ภาพ + สติกเกอร์จริง","สติกเกอร์ LINE ห้ามมีโฆษณา/โลโก้องค์กร"],
+["ชุดสื่อการสอนจากงานวิจัย (Research-based kit)","แปลงผลงานวิจัยเป็นเกม/โมเดล/ใบงานที่โรงเรียนใช้ได้ เป็นงานบริการวิชาการ","ทุกเครื่องมือ · ความรู้จากภาควิชา","โรงเรียน หน่วยงานรัฐ โครงการวิจัย",3,4,"เสนอเป็นส่วนเผยแพร่ผลงานของโครงการวิจัยที่มีอยู่","แยกงานส่วนตัวกับงานของมหาวิทยาลัยให้ชัด (ระเบียบทรัพย์สินทางปัญญา)"],
+["เกมฝึกความจำสำหรับผู้สูงอายุจากภาพครอบครัว","จิ๊กซอว์ชิ้นใหญ่/การ์ดจับคู่ที่ใช้ภาพความทรงจำของแต่ละครอบครัว","Brother/TC-20 + Cricut + เคลือบ","ลูกหลานผู้สูงอายุ ศูนย์ดูแลผู้สูงอายุ",4,4,"ร่วมออกแบบกับผู้เชี่ยวชาญด้านผู้สูงอายุ ทดสอบ 5 ครอบครัว","ไม่อ้างผลทางการแพทย์ · ภาพครอบครัวเป็นข้อมูลส่วนบุคคล"],
+["เส้นทางเรียนรู้ความหลากหลายทางชีวภาพในวิทยาเขต","ป้ายพันธุ์ไม้/สัตว์ QR + แผนที่ออนไลน์ + พาสปอร์ตสะสมตรา","TC-20 + PP board + เคลือบ · หน้าเว็บ","มหาวิทยาลัย โรงเรียน ผู้มาเยือน",3,4,"ทำ 10 จุดนำร่อง เสนอหน่วยงานในมหาวิทยาลัย","ขออนุญาตติดตั้งป้าย · ดูแลข้อมูลให้ทันสมัย"],
+["Escape room กระดาษ/เกมไขปริศนาในพิพิธภัณฑ์","กิจกรรมกลุ่มที่ทำให้เดินชมทั้งพิพิธภัณฑ์ ขายเป็นชุดกิจกรรม","Brother + Cricut + เคลือบ · กล่อง/ซองปริศนา","โรงเรียน ค่าย ครอบครัว ทีมองค์กร",3,4,"ออกแบบ 1 เส้นทาง 45 นาที ทดลองกับนิสิต 3 กลุ่ม","ประสานพิพิธภัณฑ์เรื่องจำนวนผู้เข้าชมและความปลอดภัยของตัวอย่าง"]
 ];
 
-const TOOLS={L:"Brother เลเซอร์",T:"Canon TC-20",C:"Cricut",H:"เคลือบร้อน",K:"เคลือบเย็น",B:"เครื่องปั๊มเข็มกลัด",P:"3D Printer",D:"เลเซอร์ DJ6"};
+// ---------- เว็บเครื่องมือ (ตรวจว่าเปิดได้เมื่อ 23 พ.ย. 2569) ----------
+const TOOLSITES=[
+["ปั้นและออกแบบโมเดล 3D",[["Tinkercad","https://www.tinkercad.com","ออกแบบ 3D บนเว็บ ง่ายที่สุด ฟรี เหมาะทำพวงกุญแจ ป้ายชื่อ ฐานสแตนดี้"],["Nomad Sculpt","https://nomadsculpt.com","ปั้นโมเดลบนแท็บเล็ต/มือถือเหมือนปั้นดิน เหมาะตัวละคร/สัตว์"],["Blender","https://www.blender.org","โปรแกรม 3D ฟรีครบทุกอย่าง (ปั้น จัดภาพ เรนเดอร์) เรียนนานกว่า"],["OpenSCAD","https://openscad.org","โมเดลด้วยโค้ด แก้ขนาดง่าย Claude เขียนโค้ดให้ได้ (เช่น กล่องไฟ Lithophane)"],["Meshy","https://www.meshy.ai","AI แปลงภาพ/ข้อความเป็นโมเดล 3D (ตรวจเงื่อนไขการใช้เชิงพาณิชย์ของแพ็กเกจ)"],["Tripo AI","https://www.tripo3d.ai","AI สร้างโมเดล 3D จากภาพ/ข้อความ อีกตัวเลือก"],["Lithophane Maker","https://lithophanemaker.com","สร้างไฟล์ Lithophane และกล่องไฟจากภาพ"],["3DP Rocks Lithophane","https://3dp.rocks/lithophane/","แปลงภาพเป็น Lithophane ในเบราว์เซอร์"]]],
+["สแกน 3D และคลังไฟล์",[["Polycam","https://poly.cam","สแกนวัตถุเป็นโมเดล 3D ด้วยมือถือ (Photogrammetry)"],["MakerWorld","https://makerworld.com","คลังโมเดล 3D ดูไลเซนส์รายไฟล์"],["Printables","https://www.printables.com","คลังโมเดล 3D"],["Thingiverse","https://www.thingiverse.com","คลังโมเดล 3D"]]],
+["ทำสติกเกอร์ LINE",[["LINE Creators Market","https://creator.line.me","สมัคร ส่งรีวิว และขายสติกเกอร์/อีโมจิ/ธีม"],["แนวทางสร้างสติกเกอร์ (สเปก)","https://creator.line.me/en/guideline/sticker/","ขนาดไฟล์ จำนวนภาพ และข้อห้าม"],["แนวทางสติกเกอร์เคลื่อนไหว","https://creator.line.me/en/guideline/animationsticker/","สเปก APNG ดุ๊กดิ๊ก"],["แนวทางอีโมจิ","https://creator.line.me/en/guideline/emoji/","สเปกอีโมจิ 180×180"],["LINE Sticker Maker","https://creator.line.me/en/stickermaker/","ทำและขายสติกเกอร์จากรูปในมือถือ"],["LINE Creators Help Center","https://help2.line.me/creators/web/?lang=en","การตั้งราคา รายได้ การโอนเงิน ภาษี"],["ibisPaint","https://ibispaint.com","แอปวาดภาพฟรีบนมือถือ/แท็บเล็ต นิยมใช้วาดสติกเกอร์"]]],
+["วาด ออกแบบ และแต่งภาพ",[["Canva","https://www.canva.com","ออกแบบโปสเตอร์ การ์ด โพสต์ มีเครื่องมือ AI"],["Photopea","https://www.photopea.com","แต่งภาพแบบ Photoshop บนเว็บ ฟรี ทำพื้นใส PNG ได้"],["Inkscape","https://inkscape.org","วาดเวกเตอร์ฟรี แปลงภาพเป็นเส้นตัด (Trace bitmap) สำหรับ Cricut/เลเซอร์"],["remove.bg","https://www.remove.bg","ลบพื้นหลังภาพอัตโนมัติ (ทำสแตนดี้/สติกเกอร์)"],["Vectorizer.AI","https://vectorizer.ai","แปลงภาพเป็นเวกเตอร์ SVG คุณภาพสูง"]]],
+["ฟอนต์และวิดีโอ",[["f0nt.com","https://www.f0nt.com","ฟอนต์ไทย (ตรวจไลเซนส์เชิงพาณิชย์ทุกฟอนต์)"],["Google Fonts","https://fonts.google.com","ฟอนต์ไลเซนส์เปิด รวมฟอนต์ไทยหลายแบบ"],["CapCut","https://www.capcut.com","ตัดต่อคลิปสินค้า ซับไตเติล เสียง"]]]
+];
+const LINESPEC=[["สติกเกอร์ธรรมดา","8/16/24/32/40 ภาพ","สูงสุด 370×320 px","Main 240×240 · Tab 96×74","PNG พื้นใส RGB ≥72 dpi ไฟล์ละ ≤1 MB ขนาดเลขคู่ เว้นขอบ ~10 px"],["สติกเกอร์เคลื่อนไหว","8/16/24 ภาพ","สูงสุด 320×270 px (ด้านหนึ่ง ≥270)","Main 240×240 · Tab 96×74","APNG 5–20 เฟรม ≤4 วินาที วน 1–4 รอบ"],["อีโมจิ","8–40 ภาพ","180×180 px","Tab 96×74","PNG พื้นใส เส้นขอบเข้ม หนา ภาพใหญ่เต็มกรอบ"]];
+const LINESTEPS=["คิดตัวละคร/ธีมที่ใช้คุยได้ทุกวัน (ทักทาย ขอบคุณ ขอโทษ รับทราบ) อย่าทำภาพวิว/สิ่งของล้วน","ร่างคำพูด 8–40 คำ ตามกลุ่มเป้าหมาย (เช่น นิสิตป.โท ครู ผู้สูงอายุ)","วาดด้วย ibisPaint/Procreate/Krita หรือแปลงภาพด้วยแอป LINE Sticker Maker ส่งออก PNG พื้นใส","ตรวจขนาดตามตารางสเปก เลขคู่ เว้นขอบ ~10 px ไม่มีโลโก้/โฆษณา/ภาพบุคคลที่ไม่มีสิทธิ์","สมัครและอัปโหลดใน LINE Creators Market กรอกชื่อ คำอธิบาย ลิขสิทธิ์ เลือกราคา","ส่งรีวิว รอผล ถ้าถูกตีกลับให้แก้ตามเหตุผล แล้วกดวางขาย","โปรโมตด้วยสินค้าจริงลายเดียวกัน (สติกเกอร์ PP/เข็มกลัด + QR) และโพสต์ในกลุ่มเป้าหมาย"];
+
+// ---------- Claude skills ----------
+// [ชื่อ skill, ใช้ทำอะไรในธุรกิจนี้, ตัวอย่างคำสั่ง]
+const SKILLS=[
+["thai-social-caption","เขียนแคปชันขายของ Facebook/IG/TikTok พร้อมแฮชแท็ก","เขียนแคปชัน TikTok 3 แบบ ขายจิ๊กซอว์แม่เหล็กรูปบัณฑิต ราคา 259 บาท เน้นของขวัญวันรับปริญญา"],
+["thai-customer-service","ตอบแชตลูกค้า LINE OA/Shopee แจ้งสถานะ ขอโทษ คืนเงิน","ช่วยตอบลูกค้าใน LINE ที่ถามว่าสแตนดี้จะเสร็จทันวันรับปริญญาไหม ทั้งที่คิวเต็ม"],
+["thai-invoice","ออกใบเสนอราคา ใบเสร็จ ใบกำกับภาษี ให้หน่วยงาน/บริษัท","ทำใบเสนอราคาชุดผู้เข้าร่วมงานประชุม 150 ชุด ชุดละ 99 บาท ให้คณะวิทยาศาสตร์"],
+["thai-pdpa","เขียนข้อความขอความยินยอมใช้รูปลูกค้า นโยบายความเป็นส่วนตัวของร้าน","เขียนข้อความขอความยินยอมใช้รูปลูกค้าบัณฑิตเพื่อทำสินค้าและโพสต์รีวิว"],
+["thai-festival-card","เขียนคำอวยพรบนการ์ด ปฏิทิน ของชำร่วย (รับปริญญา งานแต่ง ปีใหม่)","เขียนคำอวยพรรับปริญญาสั้น ๆ 10 แบบ สำหรับพิมพ์บนเข็มกลัดและการ์ด"],
+["thai-address","แยกที่อยู่ลูกค้า ตรวจรหัสไปรษณีย์ ทำฉลากจัดส่ง","แยกที่อยู่จากข้อความลูกค้า 20 รายนี้เป็นตารางสำหรับพิมพ์ใบปะหน้า"],
+["thai-id-validate","สร้าง PromptPay QR รับเงิน ตรวจเลขผู้เสียภาษีของหน่วยงาน","สร้างข้อมูล PromptPay QR สำหรับรับเงิน 590 บาท"],
+["thai-translate","แปลป้าย/คำอธิบายสินค้าเป็นภาษาอังกฤษสำหรับนักท่องเที่ยว","แปลคำอธิบายสินค้าในร้านพิพิธภัณฑ์ 20 รายการเป็นภาษาอังกฤษแบบสั้น"],
+["docs (Claude Docs)","ทำแผนธุรกิจ คู่มือ เอกสารเสนอโครงการแบบแก้ไขร่วมกันได้","ทำเอกสารเสนอโครงการชุดสื่อการสอนจากงานวิจัยให้โรงเรียน"],
+["xlsx / Sheets","ตารางต้นทุน สต็อกวัสดุ บันทึกออเดอร์","ทำตารางบันทึกออเดอร์รับปริญญา มีสถานะ วันส่ง ยอดมัดจำ"],
+["pdf / thai-pdf","คู่มือ ใบงาน เทมเพลตพิมพ์ (เช่น คู่มือจิ๊กซอว์ สแตนดี้)","ทำ PDF ใบงานเดินชมพิพิธภัณฑ์ 4 หน้า สำหรับนักเรียนประถม"],
+["pptx / Slides","สไลด์เสนอขายให้หน่วยงาน พิพิธภัณฑ์ ผู้จัดงาน","ทำสไลด์ 8 หน้า เสนอชุดของที่ระลึกให้ร้านพิพิธภัณฑ์"],
+["video-making / hyperframes","คลิปสินค้าสั้น ภาพเคลื่อนไหว คำบรรยาย","ทำคลิปแนวตั้ง 20 วินาที แนะนำ Lithophane กล่องไฟจากภาพสินค้าที่แนบ"],
+["dataviz","กราฟยอดขาย ต้นทุน กำไร รายเดือน","ทำกราฟยอดขายแยกตามตลาดจากไฟล์ออเดอร์ที่แนบ"],
+["html-to-github-pages","เผยแพร่เว็บแบบนี้ขึ้น GitHub Pages","อัปเดตเว็บ ideaprinting ด้วยไฟล์ใหม่ใน Downloads"],
+["skill-creator","สร้าง skill ของร้านเอง เช่น ตั้งราคาตามสูตรร้าน หรือเตรียมไฟล์พิมพ์","สร้าง skill คำนวณราคาสแตนดี้ตามขนาดและวัสดุตามสูตรของร้าน"]
+];
+const CLAUDE_DIRECT=[
+["สร้างไฟล์ตัด SVG","เช่น เส้นจิ๊กซอว์ กล่อง tuck box ป้ายรูปทรงพิเศษ สำหรับ Cricut/เลเซอร์"],
+["เขียนโค้ด OpenSCAD/สคริปต์ 3D","เช่น กล่องไฟ Lithophane ฐานสแตนดี้ ที่วางนามบัตร ปรับขนาดได้"],
+["แปลงภาพเป็น Lithophane STL","กำหนดความหนา ขนาด และส่งไฟล์พร้อมพิมพ์"],
+["จัดหน้าไฟล์พิมพ์","วางภาพหลายชิ้นบน A4/A3 ใส่ bleed เส้นตัด ทำคู่มือ PDF"],
+["วิเคราะห์ราคาและต้นทุน","คิดราคาต่อชิ้น ราคาส่ง เทียบคู่แข่ง"],
+["สร้างเว็บ/เครื่องมือเล็ก ๆ","เช่น ฟอร์มสั่งทำ หน้าเว็บสินค้าพร้อม QR"]
+];
+
+const TOOLS={L:"Brother เลเซอร์",T:"Canon TC-20",C:"Cricut",H:"เคลือบร้อน",K:"เคลือบเย็น",B:"เครื่องปั๊มเข็มกลัด",P:"3D Printer",D:"เลเซอร์ DJ6",X:"คอม/แท็บเล็ต (งานดิจิทัล)"};
 const WHO={s:"นักเรียน",t:"วัยรุ่น",w:"วัยทำงาน",e:"ผู้สูงอายุ",a:"นักวิชาการ",g:"บัณฑิต/ครอบครัวบัณฑิต",m:"นักท่องเที่ยวพิพิธภัณฑ์",o:"หน่วยงานรัฐ/จัดซื้อ",p:"พ่อแม่ผู้ปกครอง",b:"คู่บ่าวสาว",c:"ร้านค้า/SME",k:"ครู"};
 const MKT={G:"รับปริญญา",W:"งานแต่ง",M:"พิพิธภัณฑ์",A:"งานประชุม/วิชาการ",O:"ออนไลน์ทั่วไป"};
 const enc=encodeURIComponent;
@@ -1439,6 +1650,9 @@ const SITES={google:["Google รูปภาพ",q=>"https://www.google.com/sear
 function itemLinks(i,full){const en=i.en||i.name,th=thKey(i.name)||i.name,L=[["google",en],["pinterest",en],["etsy",en],["shopee",th]];
  if(full){L.push(["lazada",th],["youtube",en+" diy"],["behance",en],["instructables",en]);if(i.tools.includes("P"))L.push(["printables",en],["makerworld",en],["thingiverse",en]);}
  return L.map(([k,q])=>`<a href="${SITES[k][1](q)}" target="_blank" rel="noopener">${SITES[k][0]}</a>`).join("");}
+function moneyHTML(i){
+ if(i.digital){const be=i.price?Math.ceil(i.cost/i.price):null;return `<div class="money"><span>ค่าออกแบบครั้งเดียว <b>${fmt(i.cost)}</b></span><span>${i.price==null?"รายได้ตามยอดขายใน LINE":i.price?`ขาย <b>${fmt(i.price)}</b>/ชิ้น`:"รายได้ค่าคอมมิชชัน"}</span>${be?`<span class="mg" style="color:var(--acc)">คืนทุน ${be} ชิ้น</span>`:""}</div>`;}
+ return `<div class="money"><span>ต้นทุน <b>${fmt(i.cost)}</b></span><span>ขาย <b>${fmt(i.price)}</b></span><span class="mg" style="color:${i.mg>=.5?"var(--good)":i.mg>=.3?"var(--warn)":"var(--bad)"}">กำไร ${Math.round(i.mg*100)}%</span></div>`;}
 const PRICE_BANDS=[["","ทุกราคา"],["0-50","≤ 50 บาท"],["51-200","51–200"],["201-1000","201–1,000"],["1001-999999","> 1,000"]];
 const fmt=n=>n==null||isNaN(n)?"–":Number(n).toLocaleString("th-TH",{maximumFractionDigits:2});
 const fmt0=n=>n==null||isNaN(n)?"–":Math.round(n).toLocaleString("th-TH");
@@ -1450,8 +1664,8 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v)
 document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#nav button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.id===b.dataset.t));});
 
 // ---------- IDEAS ----------
-const ITEMS=[];DATA.forEach((s,si)=>s.items.forEach((r,k)=>ITEMS.push({si,en:(EN[si]||[])[k]||"",cat:s.cat,sub:s.name,name:r[0],tools:r[1]==="—"?[]:r[1].split(","),mat:r[2],who:r[3].split(","),mkt:r[4].split(","),cost:r[5],price:r[6],note:r[7]||""})));
-ITEMS.forEach((i,k)=>{i.id=k;i.profit=i.price-i.cost;i.mg=i.price>0?i.profit/i.price:0;i.text=(i.name+" "+i.en+" "+i.mat+" "+i.note+" "+i.cat+" "+i.sub+" "+i.tools.map(t=>TOOLS[t]).join(" ")+" "+i.who.map(w=>WHO[w]).join(" ")).toLowerCase();});
+const ITEMS=[];DATA.forEach((s,si)=>s.items.forEach((r,k)=>ITEMS.push({si,digital:!!s.info.digital,en:(EN[si]||[])[k]||"",cat:s.cat,sub:s.name,name:r[0],tools:r[1]==="—"?[]:r[1].split(","),mat:r[2],who:r[3].split(","),mkt:r[4].split(","),cost:r[5],price:r[6],note:r[7]||""})));
+ITEMS.forEach((i,k)=>{i.id=k;i.profit=i.price==null||i.digital?null:i.price-i.cost;i.mg=i.profit==null?null:(i.price>0?i.profit/i.price:0);i.text=(i.name+" "+i.en+" "+i.mat+" "+i.note+" "+i.cat+" "+i.sub+" "+i.tools.map(t=>TOOLS[t]).join(" ")+" "+i.who.map(w=>WHO[w]).join(" ")).toLowerCase();});
 const CATS=[...new Set(DATA.map(s=>s.cat))];
 const st={cat:"",si:-1,q:"",who:"",tool:"",mkt:"",sort:"",band:""};
 function opt(sel,obj,label){sel.innerHTML=`<option value="">${label}</option>`+Object.entries(obj).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");}
@@ -1466,26 +1680,48 @@ $("side").onclick=e=>{const c=e.target.closest(".cat"),s=e.target.closest(".sub"
 ["q","fWho","fTool","fMkt","fSort"].forEach(id=>$(id).addEventListener("input",()=>{st.q=$("q").value.trim().toLowerCase();st.who=$("fWho").value;st.tool=$("fTool").value;st.mkt=$("fMkt").value;st.sort=$("fSort").value;render();}));
 $("reset").onclick=()=>{Object.assign(st,{cat:"",si:-1,q:"",who:"",tool:"",mkt:"",sort:"",band:""});["q","fWho","fTool","fMkt","fSort"].forEach(id=>$(id).value="");[...$("priceChips").children].forEach((x,i)=>x.classList.toggle("on",i===0));side();render();};
 function filtered(){let L=ITEMS.filter(i=>(!st.cat||i.cat===st.cat)&&(st.si<0||i.si===st.si)&&(!st.who||i.who.includes(st.who))&&(!st.tool||i.tools.includes(st.tool))&&(!st.mkt||i.mkt.includes(st.mkt)));
- if(st.band){const[a,b]=st.band.split("-").map(Number);L=L.filter(i=>i.price>=a&&i.price<=b);}
+ if(st.band){const[a,b]=st.band.split("-").map(Number);L=L.filter(i=>i.price!=null&&i.price>=a&&i.price<=b);}
  if(st.q){const words=st.q.split(/\s+/);L=L.filter(i=>words.every(w=>i.text.includes(w)));}
- const S={mg:(a,b)=>b.mg-a.mg,profit:(a,b)=>b.profit-a.profit,pa:(a,b)=>a.price-b.price,pd:(a,b)=>b.price-a.price,ca:(a,b)=>a.cost-b.cost}[st.sort];if(S)L=[...L].sort(S);return L;}
+ const nz=(v,d)=>v==null?d:v;const S={mg:(a,b)=>nz(b.mg,-9)-nz(a.mg,-9),profit:(a,b)=>nz(b.profit,-1e9)-nz(a.profit,-1e9),pa:(a,b)=>nz(a.price,1e9)-nz(b.price,1e9),pd:(a,b)=>nz(b.price,-1)-nz(a.price,-1),ca:(a,b)=>a.cost-b.cost}[st.sort];if(S)L=[...L].sort(S);return L;}
 function median(a){if(!a.length)return NaN;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;}
 function render(){const L=filtered();
- $("stats").innerHTML=`<div class="stat"><b>${L.length}</b><span>ไอเดีย</span></div><div class="stat"><b>${fmt0(median(L.map(i=>i.cost)))}</b><span>ต้นทุนกลาง (บาท)</span></div><div class="stat"><b>${fmt0(median(L.map(i=>i.price)))}</b><span>ราคาขายกลาง (บาท)</span></div><div class="stat"><b>${L.length?Math.round(median(L.map(i=>i.mg))*100):"–"}%</b><span>กำไรกลาง</span></div>`;
+ $("stats").innerHTML=`<div class="stat"><b>${L.length}</b><span>ไอเดีย</span></div><div class="stat"><b>${fmt0(median(L.map(i=>i.cost)))}</b><span>ต้นทุนกลาง (บาท)</span></div><div class="stat"><b>${fmt0(median(L.filter(i=>i.price!=null).map(i=>i.price)))}</b><span>ราคาขายกลาง (บาท)</span></div><div class="stat"><b>${L.some(i=>i.mg!=null)?Math.round(median(L.filter(i=>i.mg!=null).map(i=>i.mg))*100):"–"}%</b><span>กำไรกลาง</span></div>`;
  let info="";
  if(st.si>=0){const s=DATA[st.si],P=PAL[s.cat]||PAL_DEF;info=`<div class="info" style="background:${P.bg};border-color:${P.mid}"><h3>${esc(s.cat)} › ${esc(s.name)}</h3><dl><dt>วัสดุเด่น</dt><dd>${esc(s.info.mat)}</dd><dt>อุปกรณ์</dt><dd>${esc(s.info.tool)}</dd><dt>กลุ่มเป้าหมาย</dt><dd>${esc(s.info.who)}</dd><dt>คำแนะนำ</dt><dd>${esc(s.info.tip)}</dd></dl></div>`;}
  else if(st.cat){const P=PAL[st.cat]||PAL_DEF;info=`<div class="info" style="background:${P.bg};border-color:${P.mid}"><h3>${esc(st.cat)}</h3><dl>`+DATA.filter(s=>s.cat===st.cat).map(s=>`<dt>${esc(s.name)}</dt><dd>${esc(s.info.tip)}</dd>`).join("")+`</dl></div>`;}
  $("info").innerHTML=info;
- $("list").innerHTML=L.length?L.map(i=>{const P=PAL[i.cat]||PAL_DEF;return `<div class="item" style="border-color:${P.mid}"><div class="ph" data-id="${i.id}">${mock(i)}</div><div class="body"><div><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)}</span> <span class="path">› ${esc(i.sub)}</span></div><h4>${esc(i.name)}</h4><div class="mat">วัสดุ: ${esc(i.mat)}</div><div class="tags">${i.tools.map(t=>`<span class="tag t">${TOOLS[t]}</span>`).join("")||'<span class="tag t">ไม่ใช้เครื่อง/จ้างต่อ</span>'}${i.mkt.map(m=>`<span class="tag m">${MKT[m]}</span>`).join("")}</div><div class="tags">${i.who.map(w=>`<span class="tag">${WHO[w]}</span>`).join("")}</div>${i.note?`<div class="note">${esc(i.note)}</div>`:""}<div class="links">ดูตัวอย่างจริง: ${itemLinks(i)}</div><div class="money"><span>ต้นทุน <b>${fmt(i.cost)}</b></span><span>ขาย <b>${fmt(i.price)}</b></span><span class="mg" style="color:${i.mg>=.5?"var(--good)":i.mg>=.3?"var(--warn)":"var(--bad)"}">กำไร ${Math.round(i.mg*100)}%</span></div></div></div>`}).join(""):`<p>ไม่พบไอเดียที่ตรงกับตัวกรอง ลองล้างตัวกรองหรือใช้คำค้นอื่น</p>`;}
+ $("list").innerHTML=L.length?L.map(i=>{const P=PAL[i.cat]||PAL_DEF;return `<div class="item" style="border-color:${P.mid}"><div class="ph" data-id="${i.id}">${mock(i)}</div><div class="body"><div><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)}</span> <span class="path">› ${esc(i.sub)}</span></div><h4>${esc(i.name)}</h4><div class="mat">วัสดุ: ${esc(i.mat)}</div><div class="tags">${i.tools.map(t=>`<span class="tag t">${TOOLS[t]}</span>`).join("")||'<span class="tag t">ไม่ใช้เครื่อง/จ้างต่อ</span>'}${i.mkt.map(m=>`<span class="tag m">${MKT[m]}</span>`).join("")}</div><div class="tags">${i.who.map(w=>`<span class="tag">${WHO[w]}</span>`).join("")}</div>${i.note?`<div class="note">${esc(i.note)}</div>`:""}<div class="links">ดูตัวอย่างจริง: ${itemLinks(i)}</div>${moneyHTML(i)}</div></div>`}).join(""):`<p>ไม่พบไอเดียที่ตรงกับตัวกรอง ลองล้างตัวกรองหรือใช้คำค้นอื่น</p>`;}
 $("list").onclick=e=>{const ph=e.target.closest(".ph");if(!ph)return;const i=ITEMS[+ph.dataset.id],P=PAL[i.cat]||PAL_DEF;
- $("mcard").innerHTML=`${mock(i,true)}<div class="body"><button class="x" id="mx" aria-label="ปิด">×</button><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)} › ${esc(i.sub)}</span><h3>${esc(i.name)}</h3><table><tr><td>วัสดุ</td><td>${esc(i.mat)}</td></tr><tr><td>เครื่องมือ</td><td>${i.tools.map(t=>TOOLS[t]).join(", ")||"ไม่ใช้เครื่อง/จ้างต่อ"}</td></tr><tr><td>กลุ่มเป้าหมาย</td><td>${i.who.map(w=>WHO[w]).join(", ")}</td></tr><tr><td>ตลาด</td><td>${i.mkt.map(m=>MKT[m]).join(", ")}</td></tr><tr><td>ต้นทุน / ขาย</td><td>${fmt(i.cost)} / ${fmt(i.price)} บาท (กำไร ${Math.round(i.mg*100)}%)</td></tr>${i.note?`<tr><td>หมายเหตุ</td><td>${esc(i.note)}</td></tr>`:""}</table><p style="margin:12px 0 4px;font-weight:700">ดูภาพตัวอย่างจริงจากเว็บต้นทาง <span class="note" style="font-weight:400">(คำค้น: ${esc(i.en)})</span></p><div class="links">${itemLinks(i,true)}</div><p class="note" style="margin-top:10px">ภาพประกอบด้านบนเป็นภาพวาดจำลองเพื่อสื่อรูปแบบสินค้า ไม่ใช่ภาพสินค้าจริง · ภาพจากเว็บต้นทางใช้เป็นแรงบันดาลใจเท่านั้น</p></div>`;
+ $("mcard").innerHTML=`${mock(i,true)}<div class="body"><button class="x" id="mx" aria-label="ปิด">×</button><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)} › ${esc(i.sub)}</span><h3>${esc(i.name)}</h3><table><tr><td>วัสดุ</td><td>${esc(i.mat)}</td></tr><tr><td>เครื่องมือ</td><td>${i.tools.map(t=>TOOLS[t]).join(", ")||"ไม่ใช้เครื่อง/จ้างต่อ"}</td></tr><tr><td>กลุ่มเป้าหมาย</td><td>${i.who.map(w=>WHO[w]).join(", ")}</td></tr><tr><td>ตลาด</td><td>${i.mkt.map(m=>MKT[m]).join(", ")}</td></tr><tr><td>ต้นทุน / ขาย</td><td>${i.digital?`ค่าออกแบบครั้งเดียว ${fmt(i.cost)} บาท · ${i.price==null?"รายได้ตามยอดขายและขั้นราคาของ LINE":i.price?`ขายชิ้นละ ${fmt(i.price)} บาท (คืนทุนเมื่อขาย ${Math.ceil(i.cost/i.price)} ชิ้น)`:"รายได้ค่าคอมมิชชัน"}`:`${fmt(i.cost)} / ${fmt(i.price)} บาท (กำไร ${Math.round(i.mg*100)}%)`}</td></tr>${i.note?`<tr><td>หมายเหตุ</td><td>${esc(i.note)}</td></tr>`:""}</table><p style="margin:12px 0 4px;font-weight:700">ดูภาพตัวอย่างจริงจากเว็บต้นทาง <span class="note" style="font-weight:400">(คำค้น: ${esc(i.en)})</span></p><div class="links">${itemLinks(i,true)}</div><p class="note" style="margin-top:10px">ภาพประกอบด้านบนเป็นภาพวาดจำลองเพื่อสื่อรูปแบบสินค้า ไม่ใช่ภาพสินค้าจริง · ภาพจากเว็บต้นทางใช้เป็นแรงบันดาลใจเท่านั้น</p></div>`;
  $("modal").classList.add("on");};
 $("modal").onclick=e=>{if(e.target.id==="modal"||e.target.id==="mx")$("modal").classList.remove("on");};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("modal").classList.remove("on");});
-$("csv").onclick=()=>{const L=filtered();const rows=[["หมวด","หมวดย่อย","ไอเดีย","เครื่องมือ","วัสดุ","กลุ่มเป้าหมาย","ตลาด","ต้นทุน","ราคาขาย","กำไร%","หมายเหตุ"]].concat(L.map(i=>[i.cat,i.sub,i.name,i.tools.map(t=>TOOLS[t]).join("/"),i.mat,i.who.map(w=>WHO[w]).join("/"),i.mkt.map(m=>MKT[m]).join("/"),i.cost,i.price,Math.round(i.mg*100),i.note]));
+$("csv").onclick=()=>{const L=filtered();const rows=[["หมวด","หมวดย่อย","ไอเดีย","เครื่องมือ","วัสดุ","กลุ่มเป้าหมาย","ตลาด","ต้นทุน","ราคาขาย","กำไร%","หมายเหตุ"]].concat(L.map(i=>[i.cat,i.sub,i.name,i.tools.map(t=>TOOLS[t]).join("/"),i.mat,i.who.map(w=>WHO[w]).join("/"),i.mkt.map(m=>MKT[m]).join("/"),i.cost,i.price==null?"ตามยอดขาย":i.price,i.mg==null?"":Math.round(i.mg*100),i.note]));
  const csv="﻿"+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="ideaprinting.csv";a.click();};
 $("legendAbout").innerHTML=`<p><b>เครื่องมือ:</b> ${Object.values(TOOLS).join(" · ")}</p><p><b>กลุ่มเป้าหมาย:</b> ${Object.values(WHO).join(" · ")}</p><p><b>ตลาด:</b> ${Object.values(MKT).join(" · ")}</p><p>รวม ${ITEMS.length} ไอเดีย ใน ${CATS.length} หมวด ${DATA.length} หมวดย่อย</p>`;
 side();render();
+
+// ---------- INNOVATION ----------
+(function(){const W=460,H=330,X0=50,X1=W-10,Y0=10,Y1=H-40,px=v=>X0+(v-1.5)/3*(X1-X0),py=v=>Y1-(v-2.5)/3*(Y1-Y0),mx=px(3.5),my=py(3.5);
+ let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:520px;font-family:Sarabun,sans-serif"><rect x="${X0}" y="${Y0}" width="${X1-X0}" height="${Y1-Y0}" fill="#fafbfa" stroke="#dfe5e3"/>`+
+ `<rect x="${mx}" y="${Y0}" width="${X1-mx}" height="${my-Y0}" fill="#E2F4DF"/><rect x="${X0}" y="${Y0}" width="${mx-X0}" height="${my-Y0}" fill="#FFF0D4" opacity=".7"/>`+
+ `<text x="${X1-8}" y="${Y0+18}" text-anchor="end" font-size="12.5" fill="#2D6A27" font-weight="700">ทำก่อน: ง่าย + ผลสูง</text><text x="${X0+8}" y="${Y0+18}" font-size="12.5" fill="#7A5410" font-weight="700">โครงการใหญ่: ต้องมีพันธมิตร/ทุน</text>`+
+ `<text x="${X1-8}" y="${Y1-8}" text-anchor="end" font-size="12" fill="#5d6b70">เสริมรายได้ ทำได้เร็ว</text><text x="${X0+8}" y="${Y1-8}" font-size="12" fill="#5d6b70">เก็บไว้ก่อน</text>`+
+ `<text x="${(X0+X1)/2}" y="${H-12}" text-anchor="middle" font-size="12" fill="#5d6b70">ความง่ายในการเริ่ม →</text><text x="16" y="${(Y0+Y1)/2}" font-size="12" fill="#5d6b70" transform="rotate(-90 16 ${(Y0+Y1)/2})" text-anchor="middle">ผลกระทบ/มูลค่า →</text>`;
+ const groups={};INNOV.forEach((v,k)=>{(groups[v[4]+"_"+v[5]]=groups[v[4]+"_"+v[5]]||[]).push(k)});
+ Object.values(groups).forEach(ks=>ks.forEach((k,j)=>{const v=INNOV[k],n=ks.length,ox=(j-(n-1)/2)*24;const x=px(v[4])+ox,y=py(v[5]);
+  s+=`<circle cx="${x}" cy="${y}" r="11" fill="#0f766e"><title>${esc(v[0])}</title></circle><text x="${x}" y="${y+4}" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">${k+1}</text>`;}));
+ $("innovMatrix").innerHTML=s+"</svg>";
+ $("innovTbl").innerHTML=`<tr><th>#</th><th>ไอเดีย</th><th>อะไรใหม่</th><th>ใช้อะไร</th><th>ลูกค้า</th><th class="r">ง่าย</th><th class="r">ผลกระทบ</th><th>ก้าวแรก</th><th>ข้อควรระวัง</th></tr>`+INNOV.map((v,k)=>`<tr><td>${k+1}</td><td><b>${esc(v[0])}</b></td><td>${esc(v[1])}</td><td>${esc(v[2])}</td><td>${esc(v[3])}</td><td class="r">${"●".repeat(v[4])}</td><td class="r">${"●".repeat(v[5])}</td><td>${esc(v[6])}</td><td>${esc(v[7])}</td></tr>`).join("");
+})();
+// ---------- TOOLS ----------
+$("lineSpec").innerHTML=`<tr><th>ประเภท</th><th>จำนวนต่อชุด</th><th>ขนาดภาพ</th><th>ภาพประกอบ</th><th>ข้อกำหนด</th></tr>`+LINESPEC.map(r=>`<tr>${r.map((c,k)=>`<td>${k?esc(c):`<b>${esc(c)}</b>`}</td>`).join("")}</tr>`).join("");
+$("lineSteps").innerHTML=LINESTEPS.map(s=>`<li>${esc(s)}</li>`).join("");
+$("toolSites").innerHTML=TOOLSITES.map(([g,L])=>`<h3 style="margin:14px 0 8px;font-size:16px">${esc(g)}</h3><div class="srcgrid">`+L.map(([n,u,d])=>`<a class="src" href="${u}" target="_blank" rel="noopener"><b>${esc(n)}</b><span>${esc(d)}</span><span style="font-size:11.5px">${u.replace(/^https:\/\//,"")}</span></a>`).join("")+`</div>`).join("");
+$("skillList").innerHTML=SKILLS.map(([n,d,p],k)=>`<div class="src"><b>${esc(n)}</b><span>${esc(d)}</span><span style="margin-top:6px;color:var(--ink);font-size:13px">“${esc(p)}”</span><button class="btn ghost" style="margin-top:6px;padding:3px 10px;font-size:13px" data-copy="${k}">คัดลอกคำสั่ง</button></div>`).join("");
+$("skillList").onclick=e=>{const b=e.target.closest("[data-copy]");if(!b)return;const t=SKILLS[+b.dataset.copy][2];(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent="คัดลอกแล้ว";setTimeout(()=>b.textContent="คัดลอกคำสั่ง",1500)}).catch(()=>{prompt("คัดลอกข้อความนี้",t)});};
+$("claudeDirect").innerHTML=CLAUDE_DIRECT.map(([n,d])=>`<div class="src"><b>${esc(n)}</b><span>${esc(d)}</span></div>`).join("");
+$("goLineIdeas").onclick=()=>{document.querySelector('#nav button[data-t=ideas]').click();st.cat="สติกเกอร์ LINE และงานดิจิทัล";st.si=-1;side();render();window.scrollTo({top:0});};
 
 // ---------- SOURCES ----------
 const SRC=[
