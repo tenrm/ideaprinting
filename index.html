@@ -21,7 +21,7 @@ main{padding:20px 24px;max-width:1400px;margin:0 auto}
 .tab{display:none}.tab.on{display:block}
 .layout{display:grid;grid-template-columns:270px 1fr;gap:20px}
 aside{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;align-self:start;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
-aside .cat{font-weight:700;padding:7px 8px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between}
+aside .cat{font-weight:700;padding:7px 8px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;margin-bottom:2px}
 aside .sub{padding:5px 8px 5px 22px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;color:var(--mute);font-size:14px}
 aside .cat:hover,aside .sub:hover{background:var(--acc2)}
 aside .sel,aside .sel:hover{background:var(--acc);color:#fff!important}
@@ -42,7 +42,16 @@ button.ghost{background:#fff;color:var(--acc)}
 .info dl{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;margin:0;font-size:14px}
 .info dt{font-weight:700;color:#0b5852}.info dd{margin:0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.item .body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.ph{cursor:zoom-in;line-height:0;border-bottom:1px solid var(--line)}.ph svg{width:100%;height:auto;display:block}
+.cattag{font-size:11.5px;font-weight:700;padding:1px 9px;border-radius:99px;display:inline-block}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;border:1px solid rgba(0,0,0,.12);vertical-align:-1px}
+#modal{position:fixed;inset:0;background:rgba(20,30,32,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+#modal.on{display:flex}#modal .card{background:#fff;border-radius:16px;max-width:720px;width:100%;max-height:92vh;overflow:auto}
+#modal .card .body{padding:16px 20px}#modal h3{margin:4px 0 8px;font-size:20px}#modal .x{float:right;border:0;background:#eef1ef;border-radius:99px;width:32px;height:32px;font-size:18px;cursor:pointer}
+#modal table td{border:0;padding:3px 8px 3px 0}#modal table td:first-child{color:var(--mute);white-space:nowrap}
+.legendpal{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .item h4{margin:0;font-size:15.5px;line-height:1.35}
 .item .path{font-size:12px;color:var(--mute)}
 .item .mat{font-size:13px;color:#33454a}
@@ -204,6 +213,7 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:20px}
  </section>
 </div>
 </main>
+<div id="modal"><div class="card" id="mcard"></div></div>
 <footer>IdeaPrinting · ข้อมูลไอเดียและราคาเป็นค่าประมาณเพื่อวางแผนธุรกิจ ตรวจสอบราคาจริงก่อนตัดสินใจ · อัปเดต 23 พ.ย. 2569</footer>
 
 <script>
@@ -1235,6 +1245,92 @@ const SEARCHES = [
 ["ทำคลิปสินค้า TikTok ด้วยมือถือ","AI และคอนเทนต์"],["จัดซื้อจัดจ้างภาครัฐ e-GP ผู้ขาย","ธุรกิจ: กฎหมายและภาษี"],["ขายของในงานรับปริญญา","ธุรกิจ: ช่องทางขาย"]
 ];
 
+// ---------- Pastel palette per category & illustrated mockups (original SVG, no external images) ----------
+const PAL = {
+ "เกม":{bg:"#FDE2E4",mid:"#F6B3BE",ink:"#8A2C3B"},
+ "โปสเตอร์และงานพิมพ์ใหญ่":{bg:"#E1EBFD",mid:"#B3C9F6",ink:"#24427A"},
+ "สแตนดี้และพร็อพ":{bg:"#FFF0D4",mid:"#F7D28A",ink:"#7A5410"},
+ "จิ๊กซอว์และของเล่นกระดาษ":{bg:"#E2F4DF",mid:"#A8D9A1",ink:"#2D6A27"},
+ "ของที่ระลึก 3D":{bg:"#ECE3FB",mid:"#C8B4F1",ink:"#4C2F86"},
+ "บรรจุภัณฑ์":{bg:"#FBE8DB",mid:"#F1C09D",ink:"#7A3F17"},
+ "ของตกแต่งบ้าน":{bg:"#DFF3F2",mid:"#9ED6D3",ink:"#1C5F5C"},
+ "สติกเกอร์":{bg:"#FCE3F2",mid:"#F0B1D9",ink:"#7D2560"},
+ "เข็มกลัดและแม่เหล็ก":{bg:"#FFF7D1",mid:"#EFDD86",ink:"#6B5A0C"},
+ "เครื่องเขียนและการ์ด":{bg:"#E5EDF7",mid:"#B7CAE2",ink:"#2F4A6B"},
+ "งานสลักเลเซอร์ (DJ6)":{bg:"#F3EADB",mid:"#D8C19C",ink:"#5C4321"},
+ "ชุดของขวัญตามตลาด":{bg:"#F9E0EB",mid:"#EAAEC8",ink:"#75264B"}
+};
+const PAL_DEF={bg:"#EEF1EF",mid:"#CBD5D1",ink:"#33454A"};
+
+function motifType(t){
+ const R=[[/บัณฑิต|ปริญญา|รับน้อง|ทั้งรุ่น|ประจำรุ่น|รุ่น/,"cap"],[/แต่ง|บ่าวสาว|เจ้าสาว|คู่รัก|วาเลนไทน์|หัวใจ|ชื่อคู่|สละโสด|หมั้น/,"heart"],[/ผีเสื้อ|แมลง|Jewel/,"butterfly"],[/นก/,"bird"],
+  [/ไดโนเสาร์|ฟอสซิล|กระดูก|กะโหลก|ฟัน/,"bone"],[/พืช|ใบไม้|พฤกษ|ต้นไม้|ป่า|ดอกไม้|สมุนไพร|เมล็ด|เรณู|ราก|ต้นไม้|Botanical/,"leaf"],
+  [/DNA|เซลล์|โมเลกุล|จุลชีพ|จุลทรรศน์|แล็บ|วิทย์|ไวรัส|แบคทีเรีย|โปรตีน|ธาตุ|ชีวโมเลกุล|พันธุ/,"molecule"],[/สัตว์|ปลา|กบ|แมว|หมา|ไดโน|ปะการัง/,"paw"],
+  [/ประชุม|วิชาการ|วิจัย|องค์กร|หน่วยงาน|โลโก้|วิทยากร|ราชการ|สัมมนา|อาคาร|วิทยาเขต/,"building"],[/รักษ์โลก|Green|คาร์บอน|ประหยัด|ขยะ|พลังงาน/,"leaf"]];
+ for(const[r,m]of R) if(r.test(t)) return m; return "star";}
+
+function motif(type,x,y,s,c,ink){const k=s/40;let g="";
+ switch(type){
+  case"cap":g=`<path d="M-19,-5 L0,-13 L19,-5 L0,3Z" fill="${c}"/><path d="M-10,-1 v9 q10,7 20,0 v-9 L0,3Z" fill="${c}"/><path d="M15,-4 v12" stroke="${c}" stroke-width="1.6"/><circle cx="15" cy="9" r="2.3" fill="${c}"/>`;break;
+  case"heart":g=`<path d="M0,15 C-22,0 -15,-18 0,-7 C15,-18 22,0 0,15Z" fill="${c}"/>`;break;
+  case"leaf":g=`<path d="M-15,15 C-15,-8 4,-17 17,-17 C17,0 7,15 -15,15Z" fill="${c}"/><path d="M-15,15 L11,-11" stroke="#fff" stroke-width="1.6" opacity=".8"/>`;break;
+  case"butterfly":g=`<ellipse cx="-9" cy="-6" rx="10" ry="9" fill="${c}"/><ellipse cx="9" cy="-6" rx="10" ry="9" fill="${c}"/><ellipse cx="-7" cy="9" rx="7" ry="6" fill="${c}" opacity=".75"/><ellipse cx="7" cy="9" rx="7" ry="6" fill="${c}" opacity=".75"/><rect x="-1.6" y="-13" width="3.2" height="28" rx="1.6" fill="${ink}"/>`;break;
+  case"bird":g=`<path d="M-18,5 C-12,-11 7,-13 13,-2 L20,-4 L14,3 C8,13 -9,13 -18,5Z" fill="${c}"/><circle cx="8" cy="-3" r="1.8" fill="#fff"/><path d="M-4,2 q6,-8 12,-2" stroke="#fff" stroke-width="1.4" fill="none" opacity=".7"/>`;break;
+  case"bone":g=`<g fill="${c}"><rect x="-12" y="-4" width="24" height="8"/><circle cx="-13" cy="-5" r="5.5"/><circle cx="-13" cy="5" r="5.5"/><circle cx="13" cy="-5" r="5.5"/><circle cx="13" cy="5" r="5.5"/></g>`;break;
+  case"molecule":g=`<g stroke="${c}" stroke-width="2.4"><line x1="-11" y1="8" x2="0" y2="-8"/><line x1="0" y1="-8" x2="12" y2="8"/><line x1="-11" y1="8" x2="12" y2="8"/></g><circle cx="0" cy="-9" r="6" fill="${c}"/><circle cx="-12" cy="9" r="5" fill="${c}"/><circle cx="12" cy="9" r="5" fill="${c}"/>`;break;
+  case"paw":g=`<g fill="${c}"><ellipse cx="0" cy="7" rx="10" ry="8"/><ellipse cx="-12" cy="-4" rx="4" ry="5"/><ellipse cx="-4" cy="-11" rx="4" ry="5"/><ellipse cx="5" cy="-11" rx="4" ry="5"/><ellipse cx="12" cy="-4" rx="4" ry="5"/></g>`;break;
+  case"building":g=`<g fill="${c}"><path d="M-18,-6 L0,-16 L18,-6Z"/><rect x="-16" y="12" width="32" height="4"/><rect x="-13" y="-4" width="4" height="15"/><rect x="-5" y="-4" width="4" height="15"/><rect x="3" y="-4" width="4" height="15"/><rect x="11" y="-4" width="4" height="15"/></g>`;break;
+  default:g=`<path d="M0,-17 L5,-5 L18,-5 L8,3 L12,16 L0,8 L-12,16 L-8,3 L-18,-5 L-5,-5Z" fill="${c}"/>`;}
+ return `<g transform="translate(${x},${y}) scale(${k})">${g}</g>`;}
+
+function shapeType(i){const n=i.name;
+ const R=[[/^ไฟล์|^ชุด Print|Printable|GoodNotes/,"file"],[/บริการ/,"service"],[/Lithophane/i,"lamp"],[/โคมไฟ|ไฟกลางคืน|ไฟประดับ|ตะเกียง/,"lamp"],
+  [/จิ๊กซอว์/,"puzzle"],[/สแตนดี้/,i.sub.includes("ตั้งโต๊ะ")?"mini":"standee"],[/พร็อพ|เฟรมถ่ายรูป|กรอบถ่ายรูป|กรอบรูปโพลารอยด์|ฉาก/,"prop"],
+  [/เข็มกลัด/,"button"],[/กระจกพกพา|ที่เปิดขวด/,"button"],[/แม่เหล็ก/,"magnet"],[/พวงกุญแจ/,"keychain"],[/ที่คั่นหนังสือ/,"bookmark"],
+  [/สติกเกอร์แผ่น|Sticker sheet|แผ่นละ/,"sheet"],[/สติกเกอร์|ฉลาก|ซีล/,"sticker"],[/กล่อง/,"box"],[/ซอง|ถุง|กระดาษห่อ|ห่อ/,"envelope"],[/แท็ก|ป้ายห้อย/,"tag"],
+  [/ปฏิทิน/,"calendar"],[/สมุด|แพลนเนอร์|โน้ต|ใบงาน|ใบประกาศ/,"notebook"],[/โปสการ์ด|การ์ดเชิญ|การ์ดอวยพร|การ์ดขอบคุณ|การ์ดป๊อปอัป|การ์ดวัน/,"postcard"],
+  [/โปสเตอร์|แบนเนอร์|Backdrop|ภาพ/,"poster"],[/ป้าย/,"sign"],[/บอร์ดเกม|กระดาน/,"board"],[/การ์ด|Flash card|เด็ค|Bingo/,"cards"],[/ไม้|หนัง/,"wood"],
+  [/โมเดล|ตุ๊กตา|ฟอสซิล|ถ้วยรางวัล|หุ่น/,"figure"]];
+ for(const[r,s]of R) if(r.test(n)) return s;
+ const D={"การ์ดเกม":"cards","บอร์ดเกม":"board","เกมการศึกษา/สื่อการสอน":"cards","โปสเตอร์ตกแต่ง/ศิลปะ":"poster","โปสเตอร์วิชาการ/งานประชุม":"poster","ป้ายและแบนเนอร์":"sign",
+  "ภาพติดผนัง/กรอบลอย":"poster","ของตกแต่งโต๊ะและไฟ":"figure","พวงกุญแจ/ของใช้ 3D":"keychain","โมเดลสัตว์/ฟอสซิล/วิทยาศาสตร์":"figure","โมเดลกระดาษ/ป๊อปอัป":"figure",
+  "ไม้และวัสดุธรรมชาติ":"wood","กระดาษ/หนัง/วัสดุอื่น":"wood","ชุดรับปริญญา":"gift","ชุดของชำร่วยงานแต่ง":"gift","ชุดงานประชุม/ร้านพิพิธภัณฑ์":"gift"};
+ return D[i.sub]||"gift";}
+
+function mock(i,big){const P=PAL[i.cat]||PAL_DEF,mt=motifType(i.name+" "+i.note),c=P.mid,ink=P.ink,W="#ffffff",sh=`fill="${ink}" opacity=".08"`;
+ const M=(x,y,s,col)=>motif(mt,x,y,s,col||ink,ink);let s="";
+ switch(shapeType(i)){
+  case"cards":s=`<g transform="rotate(-14 150 95)"><rect x="112" y="40" width="70" height="98" rx="8" fill="${c}" stroke="${ink}" stroke-width="1.5"/></g><g transform="rotate(-4 160 95)"><rect x="122" y="38" width="70" height="98" rx="8" fill="${W}" stroke="${ink}" stroke-width="1.5"/></g><g transform="rotate(9 170 95)"><rect x="134" y="38" width="70" height="98" rx="8" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="141" y="45" width="56" height="84" rx="5" fill="${P.bg}"/>${M(169,82,34)}</g>`;break;
+  case"board":s=`<rect x="92" y="34" width="136" height="112" rx="6" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M100 120 h28 v-24 h28 v-24 h28 v-24 h36" fill="none" stroke="${c}" stroke-width="10" stroke-linejoin="round"/>${M(200,112,30)}<circle cx="112" cy="58" r="7" fill="${ink}"/><rect x="236" y="104" width="26" height="26" rx="5" fill="${W}" stroke="${ink}"/><circle cx="244" cy="112" r="2.4" fill="${ink}"/><circle cx="254" cy="122" r="2.4" fill="${ink}"/>`;break;
+  case"poster":s=`<rect x="108" y="26" width="104" height="134" rx="3" fill="${ink}"/><rect x="114" y="32" width="92" height="122" fill="${W}"/><rect x="122" y="40" width="76" height="86" fill="${P.bg}"/>${M(160,83,46)}<rect x="122" y="134" width="50" height="5" rx="2" fill="${c}"/><rect x="122" y="143" width="34" height="4" rx="2" fill="${c}"/><path d="M160 26 L140 12 M160 26 L180 12" stroke="${ink}" stroke-width="1.2"/>`;break;
+  case"sign":s=`<path d="M128 150 L150 56 M192 150 L170 56 M160 150 L160 120" stroke="${ink}" stroke-width="3"/><rect x="104" y="40" width="112" height="80" rx="4" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="104" y="40" width="112" height="20" rx="4" fill="${c}"/>${M(136,92,30)}<rect x="158" y="80" width="46" height="6" rx="3" fill="${c}"/><rect x="158" y="93" width="34" height="6" rx="3" fill="${c}"/>`;break;
+  case"standee":s=`<ellipse cx="160" cy="156" rx="46" ry="7" ${sh}/><circle cx="160" cy="50" r="17" fill="${c}" stroke="${ink}" stroke-width="1.5"/><path d="M128 154 C128 96 140 74 160 74 C180 74 192 96 192 154Z" fill="${c}" stroke="${ink}" stroke-width="1.5"/>${mt==="cap"?motif("cap",160,32,30,ink,ink):M(160,112,30,W)}<rect x="136" y="150" width="48" height="8" rx="3" fill="${ink}"/>`;break;
+  case"mini":s=`<ellipse cx="160" cy="150" rx="40" ry="6" ${sh}/><path d="M126 60 q34-34 68 0 v66 h-68Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/>${M(160,92,40)}<rect x="120" y="126" width="80" height="20" rx="5" fill="${c}" stroke="${ink}"/>`;break;
+  case"prop":s=`<rect x="98" y="34" width="124" height="96" rx="8" fill="${c}" stroke="${ink}" stroke-width="1.5"/><rect x="114" y="48" width="92" height="66" rx="4" fill="${P.bg}"/>${M(160,81,36)}<rect x="154" y="130" width="12" height="34" rx="3" fill="#C9A26B" stroke="${ink}"/>`;break;
+  case"puzzle":{let g="";const xs=[100,140,180],ys=[38,78,118];for(let r=0;r<3;r++)for(let q=0;q<3;q++)g+=`<rect x="${xs[q]}" y="${ys[r]}" width="40" height="40" fill="${(r+q)%2?W:P.bg}" stroke="${ink}" stroke-width="1"/>`;
+   s=`${g}<circle cx="140" cy="58" r="5" fill="${W}" stroke="${ink}"/><circle cx="180" cy="98" r="5" fill="${P.bg}" stroke="${ink}"/><circle cx="120" cy="118" r="5" fill="${W}" stroke="${ink}"/>${M(160,98,52)}<g transform="translate(236 104) rotate(18)"><rect width="34" height="34" fill="${c}" stroke="${ink}"/><circle cx="34" cy="17" r="5" fill="${c}" stroke="${ink}"/></g>`;break;}
+  case"lamp":s=`<rect x="114" y="30" width="92" height="112" rx="6" fill="${ink}"/><rect x="122" y="38" width="76" height="92" fill="#FFF6D8"/><circle cx="160" cy="84" r="40" fill="#FFE9A8" opacity=".7"/>${M(160,84,44,"#C89B3C")}<rect x="108" y="140" width="104" height="14" rx="4" fill="${c}" stroke="${ink}"/>`;break;
+  case"figure":s=`<ellipse cx="160" cy="146" rx="52" ry="9" ${sh}/><rect x="122" y="126" width="76" height="20" rx="5" fill="${c}" stroke="${ink}"/><circle cx="160" cy="80" r="44" fill="${W}" stroke="${ink}" stroke-width="1.5"/>${M(160,80,58,c)}`;break;
+  case"keychain":s=`<circle cx="160" cy="38" r="14" fill="none" stroke="#9AA5A8" stroke-width="4"/><rect x="157" y="50" width="6" height="16" fill="#9AA5A8"/><circle cx="160" cy="108" r="42" fill="${c}" stroke="${ink}" stroke-width="1.5"/><circle cx="160" cy="108" r="34" fill="${W}"/>${M(160,108,40)}`;break;
+  case"button":s=`<ellipse cx="160" cy="152" rx="50" ry="7" ${sh}/><circle cx="160" cy="88" r="58" fill="${c}" stroke="${ink}" stroke-width="1.5"/><circle cx="160" cy="88" r="50" fill="${P.bg}"/>${M(160,88,56)}<path d="M120 60 a50 50 0 0 1 40 -22" stroke="${W}" stroke-width="6" fill="none" opacity=".8" stroke-linecap="round"/>`;break;
+  case"magnet":s=`<rect x="96" y="16" width="128" height="160" rx="10" fill="#F4F6F5" stroke="${ink}" stroke-width="1.2"/><rect x="208" y="60" width="6" height="40" rx="3" fill="${ink}" opacity=".4"/><g transform="rotate(-6 150 80)"><rect x="112" y="44" width="72" height="72" rx="10" fill="${c}" stroke="${ink}"/><rect x="118" y="50" width="60" height="60" rx="6" fill="${W}"/>${M(148,80,40)}</g><circle cx="196" cy="140" r="14" fill="${P.bg}" stroke="${ink}"/>${M(196,140,16)}`;break;
+  case"bookmark":s=`<rect x="138" y="20" width="44" height="140" rx="6" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="144" y="28" width="32" height="92" rx="3" fill="${P.bg}"/>${M(160,74,30)}<circle cx="160" cy="138" r="4" fill="none" stroke="${ink}"/><path d="M160 142 C150 160 176 160 166 176" stroke="${c}" stroke-width="4" fill="none"/>`;break;
+  case"sticker":s=`<path d="M116 44 q14-16 30-6 q16-14 32 0 q18-8 26 10 q16 14 4 32 q10 20-8 30 q-6 20-28 16 q-16 14-32 0 q-22 4-26-18 q-18-14-6-32 q-8-20 8-32Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M122 52 q12-12 26-5 q14-11 28 0 q15-6 22 9 q13 12 3 27 q8 17-7 25 q-5 17-24 13 q-14 11-27 0 q-19 3-22-15 q-15-12-5-27 q-7-17 6-27Z" fill="${c}"/>${M(160,92,52,W)}<path d="M214 118 l14 14 l-18 4Z" fill="${P.bg}" stroke="${ink}"/>`;break;
+  case"sheet":{let g="";[[128,58],[170,58],[212,58],[128,104],[170,104],[212,104]].forEach(([x,y],k)=>g+=`<circle cx="${x-20}" cy="${y}" r="17" fill="${k%2?c:P.bg}" stroke="${ink}" stroke-dasharray="3 2"/>`+motif(mt,x-20,y,20,ink,ink));
+   s=`<rect x="84" y="28" width="152" height="124" rx="6" fill="${W}" stroke="${ink}" stroke-width="1.5"/>${g}<rect x="96" y="132" width="60" height="6" rx="3" fill="${c}"/>`;break;}
+  case"box":s=`<path d="M160 40 L222 66 L160 92 L98 66Z" fill="${c}" stroke="${ink}" stroke-width="1.5"/><path d="M98 66 L160 92 L160 156 L98 130Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M222 66 L160 92 L160 156 L222 130Z" fill="${P.bg}" stroke="${ink}" stroke-width="1.5"/>${motif(mt,129,110,30,ink,ink)}<path d="M160 40 L160 92" stroke="${ink}" opacity=".3"/>`;break;
+  case"envelope":s=`<rect x="92" y="46" width="136" height="92" rx="5" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M92 50 L160 100 L228 50" fill="${c}" stroke="${ink}" stroke-width="1.5"/><circle cx="160" cy="100" r="14" fill="${P.bg}" stroke="${ink}"/>${M(160,100,18)}`;break;
+  case"tag":s=`<path d="M136 30 h48 l14 18 v104 h-76 v-104Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/><circle cx="160" cy="46" r="5" fill="${P.bg}" stroke="${ink}"/><path d="M160 41 C150 20 176 12 186 22" stroke="${c}" stroke-width="3" fill="none"/>${M(160,98,40)}<rect x="138" y="130" width="44" height="5" rx="2" fill="${c}"/>`;break;
+  case"calendar":{let g="";for(let r=0;r<4;r++)for(let q=0;q<6;q++)g+=`<rect x="${122+q*14}" y="${104+r*11}" width="10" height="7" rx="1.5" fill="${(r*6+q)%9?P.bg:c}"/>`;
+   s=`<rect x="110" y="30" width="100" height="128" rx="6" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="110" y="30" width="100" height="66" rx="6" fill="${c}"/>${M(160,64,40,W)}${g}<circle cx="135" cy="30" r="4" fill="${ink}"/><circle cx="185" cy="30" r="4" fill="${ink}"/>`;break;}
+  case"notebook":s=`<rect x="114" y="28" width="96" height="128" rx="6" fill="${c}" stroke="${ink}" stroke-width="1.5"/><rect x="124" y="40" width="76" height="54" rx="4" fill="${W}"/>${M(162,67,36)}<rect x="132" y="104" width="60" height="5" rx="2" fill="${W}"/><rect x="132" y="114" width="42" height="5" rx="2" fill="${W}"/>${Array.from({length:8},(_,k)=>`<circle cx="114" cy="${40+k*15}" r="4" fill="none" stroke="${ink}" stroke-width="1.5"/>`).join("")}`;break;
+  case"postcard":s=`<g transform="rotate(-5 160 92)"><rect x="88" y="44" width="144" height="96" rx="4" fill="${W}" stroke="${ink}" stroke-width="1.5"/><rect x="96" y="52" width="70" height="80" fill="${P.bg}"/>${M(131,92,40)}<rect x="196" y="54" width="26" height="30" fill="${c}" stroke="${ink}" stroke-dasharray="2 2"/><rect x="176" y="96" width="46" height="3" fill="${c}"/><rect x="176" y="108" width="46" height="3" fill="${c}"/><rect x="176" y="120" width="34" height="3" fill="${c}"/></g>`;break;
+  case"wood":s=`<rect x="100" y="44" width="120" height="96" rx="14" fill="#E8D2A8" stroke="${ink}" stroke-width="1.5"/><path d="M108 66 q50 -10 104 4 M108 96 q60 12 104 -2 M108 122 q40 -6 104 4" stroke="#C9A976" fill="none"/>${M(160,92,44,"#6B4A22")}<circle cx="122" cy="58" r="5" fill="${W}" stroke="${ink}"/>`;break;
+  case"file":s=`<path d="M124 26 h54 l22 22 v104 h-76Z" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M178 26 v22 h22" fill="${c}" stroke="${ink}"/>${M(162,92,40)}<rect x="138" y="128" width="48" height="14" rx="4" fill="${c}"/><text x="162" y="139" font-size="10" text-anchor="middle" fill="${ink}" font-family="Sarabun,sans-serif" font-weight="700">PDF</text>`;break;
+  case"service":s=`<circle cx="160" cy="88" r="56" fill="${W}" stroke="${ink}" stroke-width="1.5"/><path d="M160 32 a56 56 0 0 1 56 56 h-56Z" fill="${c}"/>${M(160,100,42)}<path d="M206 136 l20 20" stroke="${ink}" stroke-width="6" stroke-linecap="round"/>`;break;
+  default:s=`<rect x="104" y="62" width="112" height="88" rx="6" fill="${c}" stroke="${ink}" stroke-width="1.5"/><rect x="152" y="62" width="16" height="88" fill="${W}"/><rect x="98" y="50" width="124" height="22" rx="5" fill="${c}" stroke="${ink}" stroke-width="1.5"/><path d="M160 50 C140 24 122 40 160 50 C198 40 180 24 160 50Z" fill="${W}" stroke="${ink}"/>${M(128,112,30,W)}`;}
+ return `<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ภาพตัวอย่าง ${esc(i.name)}"${big?' width="100%"':''}><rect width="320" height="180" fill="${P.bg}"/><circle cx="276" cy="30" r="46" fill="${P.mid}" opacity=".35"/><circle cx="34" cy="160" r="34" fill="${P.mid}" opacity=".3"/>${s}</svg>`;}
+
 const TOOLS={L:"Brother เลเซอร์",T:"Canon TC-20",C:"Cricut",H:"เคลือบร้อน",K:"เคลือบเย็น",B:"เครื่องปั๊มเข็มกลัด",P:"3D Printer",D:"เลเซอร์ DJ6"};
 const WHO={s:"นักเรียน",t:"วัยรุ่น",w:"วัยทำงาน",e:"ผู้สูงอายุ",a:"นักวิชาการ",g:"บัณฑิต/ครอบครัวบัณฑิต",m:"นักท่องเที่ยวพิพิธภัณฑ์",o:"หน่วยงานรัฐ/จัดซื้อ",p:"พ่อแม่ผู้ปกครอง",b:"คู่บ่าวสาว",c:"ร้านค้า/SME",k:"ครู"};
 const MKT={G:"รับปริญญา",W:"งานแต่ง",M:"พิพิธภัณฑ์",A:"งานประชุม/วิชาการ",O:"ออนไลน์ทั่วไป"};
@@ -1250,7 +1346,7 @@ document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{document.quer
 
 // ---------- IDEAS ----------
 const ITEMS=[];DATA.forEach((s,si)=>s.items.forEach(r=>ITEMS.push({si,cat:s.cat,sub:s.name,name:r[0],tools:r[1]==="—"?[]:r[1].split(","),mat:r[2],who:r[3].split(","),mkt:r[4].split(","),cost:r[5],price:r[6],note:r[7]||""})));
-ITEMS.forEach(i=>{i.profit=i.price-i.cost;i.mg=i.price>0?i.profit/i.price:0;i.text=(i.name+" "+i.mat+" "+i.note+" "+i.cat+" "+i.sub+" "+i.tools.map(t=>TOOLS[t]).join(" ")+" "+i.who.map(w=>WHO[w]).join(" ")).toLowerCase();});
+ITEMS.forEach((i,k)=>{i.id=k;i.profit=i.price-i.cost;i.mg=i.price>0?i.profit/i.price:0;i.text=(i.name+" "+i.mat+" "+i.note+" "+i.cat+" "+i.sub+" "+i.tools.map(t=>TOOLS[t]).join(" ")+" "+i.who.map(w=>WHO[w]).join(" ")).toLowerCase();});
 const CATS=[...new Set(DATA.map(s=>s.cat))];
 const st={cat:"",si:-1,q:"",who:"",tool:"",mkt:"",sort:"",band:""};
 function opt(sel,obj,label){sel.innerHTML=`<option value="">${label}</option>`+Object.entries(obj).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");}
@@ -1258,7 +1354,7 @@ opt($("fWho"),WHO,"กลุ่มเป้าหมาย: ทั้งหม�
 $("priceChips").innerHTML=PRICE_BANDS.map(([v,l])=>`<span class="chip${v===""?" on":""}" data-b="${v}">${l}</span>`).join("");
 $("priceChips").onclick=e=>{const c=e.target.closest(".chip");if(!c)return;st.band=c.dataset.b;[...$("priceChips").children].forEach(x=>x.classList.toggle("on",x===c));render();};
 function side(){let h=`<div class="cat${st.cat===""?" sel":""}" data-c="">ทุกหมวด <span class="n">${ITEMS.length}</span></div>`;
- CATS.forEach(c=>{const n=ITEMS.filter(i=>i.cat===c).length;h+=`<div class="cat${st.cat===c&&st.si<0?" sel":""}" data-c="${esc(c)}">${esc(c)} <span class="n">${n}</span></div>`;
+ CATS.forEach(c=>{const n=ITEMS.filter(i=>i.cat===c).length,P=PAL[c]||PAL_DEF,on=st.cat===c&&st.si<0;h+=`<div class="cat${on?" sel":""}" data-c="${esc(c)}" style="${on?"":`background:${P.bg};color:${P.ink}`}"><span><span class="dot" style="background:${P.mid}"></span>${esc(c)}</span> <span class="n">${n}</span></div>`;
   if(st.cat===c) DATA.forEach((s,si)=>{if(s.cat===c)h+=`<div class="sub${st.si===si?" sel":""}" data-s="${si}">${esc(s.name)} <span class="n">${s.items.length}</span></div>`});});
  $("side").innerHTML=h;}
 $("side").onclick=e=>{const c=e.target.closest(".cat"),s=e.target.closest(".sub");if(c){st.cat=c.dataset.c;st.si=-1;}else if(s){st.si=+s.dataset.s;}else return;side();render();window.scrollTo({top:0,behavior:"smooth"});};
@@ -1272,10 +1368,15 @@ function median(a){if(!a.length)return NaN;const s=[...a].sort((x,y)=>x-y),m=s.l
 function render(){const L=filtered();
  $("stats").innerHTML=`<div class="stat"><b>${L.length}</b><span>ไอเดีย</span></div><div class="stat"><b>${fmt0(median(L.map(i=>i.cost)))}</b><span>ต้นทุนกลาง (บาท)</span></div><div class="stat"><b>${fmt0(median(L.map(i=>i.price)))}</b><span>ราคาขายกลาง (บาท)</span></div><div class="stat"><b>${L.length?Math.round(median(L.map(i=>i.mg))*100):"–"}%</b><span>กำไรกลาง</span></div>`;
  let info="";
- if(st.si>=0){const s=DATA[st.si];info=`<div class="info"><h3>${esc(s.cat)} › ${esc(s.name)}</h3><dl><dt>วัสดุเด่น</dt><dd>${esc(s.info.mat)}</dd><dt>อุปกรณ์</dt><dd>${esc(s.info.tool)}</dd><dt>กลุ่มเป้าหมาย</dt><dd>${esc(s.info.who)}</dd><dt>คำแนะนำ</dt><dd>${esc(s.info.tip)}</dd></dl></div>`;}
- else if(st.cat){info=`<div class="info"><h3>${esc(st.cat)}</h3><dl>`+DATA.filter(s=>s.cat===st.cat).map(s=>`<dt>${esc(s.name)}</dt><dd>${esc(s.info.tip)}</dd>`).join("")+`</dl></div>`;}
+ if(st.si>=0){const s=DATA[st.si],P=PAL[s.cat]||PAL_DEF;info=`<div class="info" style="background:${P.bg};border-color:${P.mid}"><h3>${esc(s.cat)} › ${esc(s.name)}</h3><dl><dt>วัสดุเด่น</dt><dd>${esc(s.info.mat)}</dd><dt>อุปกรณ์</dt><dd>${esc(s.info.tool)}</dd><dt>กลุ่มเป้าหมาย</dt><dd>${esc(s.info.who)}</dd><dt>คำแนะนำ</dt><dd>${esc(s.info.tip)}</dd></dl></div>`;}
+ else if(st.cat){const P=PAL[st.cat]||PAL_DEF;info=`<div class="info" style="background:${P.bg};border-color:${P.mid}"><h3>${esc(st.cat)}</h3><dl>`+DATA.filter(s=>s.cat===st.cat).map(s=>`<dt>${esc(s.name)}</dt><dd>${esc(s.info.tip)}</dd>`).join("")+`</dl></div>`;}
  $("info").innerHTML=info;
- $("list").innerHTML=L.length?L.map(i=>`<div class="item"><div class="path">${esc(i.cat)} › ${esc(i.sub)}</div><h4>${esc(i.name)}</h4><div class="mat">วัสดุ: ${esc(i.mat)}</div><div class="tags">${i.tools.map(t=>`<span class="tag t">${TOOLS[t]}</span>`).join("")||'<span class="tag t">ไม่ใช้เครื่อง/จ้างต่อ</span>'}${i.mkt.map(m=>`<span class="tag m">${MKT[m]}</span>`).join("")}</div><div class="tags">${i.who.map(w=>`<span class="tag">${WHO[w]}</span>`).join("")}</div>${i.note?`<div class="note">${esc(i.note)}</div>`:""}<div class="money"><span>ต้นทุน <b>${fmt(i.cost)}</b></span><span>ขาย <b>${fmt(i.price)}</b></span><span class="mg" style="color:${i.mg>=.5?"var(--good)":i.mg>=.3?"var(--warn)":"var(--bad)"}">กำไร ${Math.round(i.mg*100)}%</span></div></div>`).join(""):`<p>ไม่พบไอเดียที่ตรงกับตัวกรอง ลองล้างตัวกรองหรือใช้คำค้นอื่น</p>`;}
+ $("list").innerHTML=L.length?L.map(i=>{const P=PAL[i.cat]||PAL_DEF;return `<div class="item" style="border-color:${P.mid}"><div class="ph" data-id="${i.id}">${mock(i)}</div><div class="body"><div><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)}</span> <span class="path">› ${esc(i.sub)}</span></div><h4>${esc(i.name)}</h4><div class="mat">วัสดุ: ${esc(i.mat)}</div><div class="tags">${i.tools.map(t=>`<span class="tag t">${TOOLS[t]}</span>`).join("")||'<span class="tag t">ไม่ใช้เครื่อง/จ้างต่อ</span>'}${i.mkt.map(m=>`<span class="tag m">${MKT[m]}</span>`).join("")}</div><div class="tags">${i.who.map(w=>`<span class="tag">${WHO[w]}</span>`).join("")}</div>${i.note?`<div class="note">${esc(i.note)}</div>`:""}<div class="money"><span>ต้นทุน <b>${fmt(i.cost)}</b></span><span>ขาย <b>${fmt(i.price)}</b></span><span class="mg" style="color:${i.mg>=.5?"var(--good)":i.mg>=.3?"var(--warn)":"var(--bad)"}">กำไร ${Math.round(i.mg*100)}%</span></div></div></div>`}).join(""):`<p>ไม่พบไอเดียที่ตรงกับตัวกรอง ลองล้างตัวกรองหรือใช้คำค้นอื่น</p>`;}
+$("list").onclick=e=>{const ph=e.target.closest(".ph");if(!ph)return;const i=ITEMS[+ph.dataset.id],P=PAL[i.cat]||PAL_DEF;
+ $("mcard").innerHTML=`${mock(i,true)}<div class="body"><button class="x" id="mx" aria-label="ปิด">×</button><span class="cattag" style="background:${P.bg};color:${P.ink}">${esc(i.cat)} › ${esc(i.sub)}</span><h3>${esc(i.name)}</h3><table><tr><td>วัสดุ</td><td>${esc(i.mat)}</td></tr><tr><td>เครื่องมือ</td><td>${i.tools.map(t=>TOOLS[t]).join(", ")||"ไม่ใช้เครื่อง/จ้างต่อ"}</td></tr><tr><td>กลุ่มเป้าหมาย</td><td>${i.who.map(w=>WHO[w]).join(", ")}</td></tr><tr><td>ตลาด</td><td>${i.mkt.map(m=>MKT[m]).join(", ")}</td></tr><tr><td>ต้นทุน / ขาย</td><td>${fmt(i.cost)} / ${fmt(i.price)} บาท (กำไร ${Math.round(i.mg*100)}%)</td></tr>${i.note?`<tr><td>หมายเหตุ</td><td>${esc(i.note)}</td></tr>`:""}</table><p class="note" style="margin-top:10px">ภาพประกอบเป็นภาพวาดจำลองเพื่อสื่อรูปแบบสินค้า ไม่ใช่ภาพสินค้าจริง</p></div>`;
+ $("modal").classList.add("on");};
+$("modal").onclick=e=>{if(e.target.id==="modal"||e.target.id==="mx")$("modal").classList.remove("on");};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("modal").classList.remove("on");});
 $("csv").onclick=()=>{const L=filtered();const rows=[["หมวด","หมวดย่อย","ไอเดีย","เครื่องมือ","วัสดุ","กลุ่มเป้าหมาย","ตลาด","ต้นทุน","ราคาขาย","กำไร%","หมายเหตุ"]].concat(L.map(i=>[i.cat,i.sub,i.name,i.tools.map(t=>TOOLS[t]).join("/"),i.mat,i.who.map(w=>WHO[w]).join("/"),i.mkt.map(m=>MKT[m]).join("/"),i.cost,i.price,Math.round(i.mg*100),i.note]));
  const csv="﻿"+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="ideaprinting.csv";a.click();};
 $("legendAbout").innerHTML=`<p><b>เครื่องมือ:</b> ${Object.values(TOOLS).join(" · ")}</p><p><b>กลุ่มเป้าหมาย:</b> ${Object.values(WHO).join(" · ")}</p><p><b>ตลาด:</b> ${Object.values(MKT).join(" · ")}</p><p>รวม ${ITEMS.length} ไอเดีย ใน ${CATS.length} หมวด ${DATA.length} หมวดย่อย</p>`;
